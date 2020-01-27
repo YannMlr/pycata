@@ -1,0 +1,26 @@
+{
+  "pycataApp": {
+    "reponsePossible": {
+      "home": {
+        "title": "ReponsePossibles",
+        "createLabel": "Créer un nouveau Reponse Possible",
+        "createOrEditLabel": "Créer ou éditer un Reponse Possible",
+        "notFound": "Aucun Reponse Possible trouvé"
+      },
+      "created": "Un nouveau Reponse Possible a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Reponse Possible avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Reponse Possible avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Reponse Possible {{ id }} ?"
+      },
+      "detail": {
+        "title": "Reponse Possible"
+      },
+      "intitule": "Intitule",
+      "vrai": "Vrai",
+      "reponseJoueur": "Reponse Joueur",
+      "question": "Question",
+      "media": "Media"
+    }
+  }
+}

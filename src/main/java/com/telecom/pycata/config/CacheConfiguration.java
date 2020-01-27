@@ -45,6 +45,26 @@ public class CacheConfiguration {
             createCache(cm, com.telecom.pycata.domain.User.class.getName());
             createCache(cm, com.telecom.pycata.domain.Authority.class.getName());
             createCache(cm, com.telecom.pycata.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.telecom.pycata.domain.Media.class.getName());
+            createCache(cm, com.telecom.pycata.domain.Media.class.getName() + ".questions");
+            createCache(cm, com.telecom.pycata.domain.Media.class.getName() + ".reponsePossibles");
+            createCache(cm, com.telecom.pycata.domain.Quizz.class.getName());
+            createCache(cm, com.telecom.pycata.domain.Quizz.class.getName() + ".questions");
+            createCache(cm, com.telecom.pycata.domain.Quizz.class.getName() + ".joueurs");
+            createCache(cm, com.telecom.pycata.domain.Evenement.class.getName());
+            createCache(cm, com.telecom.pycata.domain.Evenement.class.getName() + ".quizzes");
+            createCache(cm, com.telecom.pycata.domain.Question.class.getName());
+            createCache(cm, com.telecom.pycata.domain.Question.class.getName() + ".reponsePossibles");
+            createCache(cm, com.telecom.pycata.domain.Question.class.getName() + ".reponsesPossibles");
+            createCache(cm, com.telecom.pycata.domain.ReponseJoueur.class.getName());
+            createCache(cm, com.telecom.pycata.domain.Theme.class.getName());
+            createCache(cm, com.telecom.pycata.domain.Theme.class.getName() + ".questions");
+            createCache(cm, com.telecom.pycata.domain.ReponsePossible.class.getName());
+            createCache(cm, com.telecom.pycata.domain.ReponsePossible.class.getName() + ".reponseJoueurs");
+            createCache(cm, com.telecom.pycata.domain.Niveau.class.getName());
+            createCache(cm, com.telecom.pycata.domain.Niveau.class.getName() + ".questions");
+            createCache(cm, com.telecom.pycata.domain.Joueur.class.getName());
+            createCache(cm, com.telecom.pycata.domain.Joueur.class.getName() + ".reponseJoueurs");
             // jhipster-needle-ehcache-add-entry
         };
     }

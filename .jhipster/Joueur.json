@@ -1,0 +1,27 @@
+{
+    "name": "Joueur",
+    "fields": [
+        {
+            "fieldName": "idUser",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reponseJoueur",
+            "otherEntityRelationshipName": "joueur",
+            "relationshipName": "reponseJoueur"
+        }
+    ],
+    "changelogDate": "20200109164415",
+    "entityTableName": "joueur",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

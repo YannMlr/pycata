@@ -1,0 +1,26 @@
+{
+  "pycataApp": {
+    "media": {
+      "home": {
+        "title": "Media",
+        "createLabel": "Create a new Media",
+        "createOrEditLabel": "Create or edit a Media",
+        "notFound": "No Media found"
+      },
+      "created": "A new Media is created with identifier {{ param }}",
+      "updated": "A Media is updated with identifier {{ param }}",
+      "deleted": "A Media is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Media {{ id }}?"
+      },
+      "detail": {
+        "title": "Media"
+      },
+      "url": "Url",
+      "nom": "Nom",
+      "type": "Type",
+      "question": "Question",
+      "reponsePossible": "Reponse Possible"
+    }
+  }
+}

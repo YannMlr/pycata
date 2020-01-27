@@ -1,0 +1,41 @@
+{
+    "name": "Media",
+    "fields": [
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "question",
+            "otherEntityRelationshipName": "media",
+            "relationshipName": "question"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reponsePossible",
+            "otherEntityRelationshipName": "media",
+            "relationshipName": "reponsePossible"
+        }
+    ],
+    "changelogDate": "20200109164407",
+    "entityTableName": "media",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

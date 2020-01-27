@@ -7,6 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "media": "Media",
+        "quizz": "Quizz",
+        "evenement": "Evenement",
+        "question": "Question",
+        "reponseJoueur": "Reponse Joueur",
+        "theme": "Theme",
+        "reponsePossible": "Reponse Possible",
+        "niveau": "Niveau",
+        "joueur": "Joueur",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

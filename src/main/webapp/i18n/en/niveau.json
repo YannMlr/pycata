@@ -1,0 +1,23 @@
+{
+  "pycataApp": {
+    "niveau": {
+      "home": {
+        "title": "Niveaus",
+        "createLabel": "Create a new Niveau",
+        "createOrEditLabel": "Create or edit a Niveau",
+        "notFound": "No Niveaus found"
+      },
+      "created": "A new Niveau is created with identifier {{ param }}",
+      "updated": "A Niveau is updated with identifier {{ param }}",
+      "deleted": "A Niveau is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Niveau {{ id }}?"
+      },
+      "detail": {
+        "title": "Niveau"
+      },
+      "intitule": "Intitule",
+      "question": "Question"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+    "name": "ReponseJoueur",
+    "fields": [
+        {
+            "fieldName": "dateEnvoi",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "dateReponse",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "score",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "joueur",
+            "otherEntityRelationshipName": "reponseJoueur",
+            "relationshipName": "joueur",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "reponsePossible",
+            "otherEntityRelationshipName": "reponseJoueur",
+            "relationshipName": "reponsePossible",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200109164411",
+    "entityTableName": "reponse_joueur",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

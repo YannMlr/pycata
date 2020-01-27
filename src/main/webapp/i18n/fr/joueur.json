@@ -1,0 +1,23 @@
+{
+  "pycataApp": {
+    "joueur": {
+      "home": {
+        "title": "Joueurs",
+        "createLabel": "Créer un nouveau Joueur",
+        "createOrEditLabel": "Créer ou éditer un Joueur",
+        "notFound": "Aucun Joueur trouvé"
+      },
+      "created": "Un nouveau Joueur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Joueur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Joueur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Joueur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Joueur"
+      },
+      "idUser": "Id User",
+      "reponseJoueur": "Reponse Joueur"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pycataApp": {
+    "quizz": {
+      "home": {
+        "title": "Quizzes",
+        "createLabel": "Créer un nouveau Quizz",
+        "createOrEditLabel": "Créer ou éditer un Quizz",
+        "notFound": "Aucun Quizz trouvé"
+      },
+      "created": "Un nouveau Quizz a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Quizz avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Quizz avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Quizz {{ id }} ?"
+      },
+      "detail": {
+        "title": "Quizz"
+      },
+      "sujet": "Sujet",
+      "score": "Score",
+      "question": "Question",
+      "evenement": "Evenement"
+    }
+  }
+}

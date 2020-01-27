@@ -1,0 +1,27 @@
+{
+    "name": "Evenement",
+    "fields": [
+        {
+            "fieldName": "intitule",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "quizz",
+            "otherEntityRelationshipName": "evenement",
+            "relationshipName": "quizz"
+        }
+    ],
+    "changelogDate": "20200109164409",
+    "entityTableName": "evenement",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

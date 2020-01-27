@@ -1,0 +1,26 @@
+{
+  "pycataApp": {
+    "reponseJoueur": {
+      "home": {
+        "title": "ReponseJoueurs",
+        "createLabel": "Créer un nouveau Reponse Joueur",
+        "createOrEditLabel": "Créer ou éditer un Reponse Joueur",
+        "notFound": "Aucun Reponse Joueur trouvé"
+      },
+      "created": "Un nouveau Reponse Joueur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Reponse Joueur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Reponse Joueur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Reponse Joueur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Reponse Joueur"
+      },
+      "dateEnvoi": "Date Envoi",
+      "dateReponse": "Date Reponse",
+      "score": "Score",
+      "joueur": "Joueur",
+      "reponsePossible": "Reponse Possible"
+    }
+  }
+}

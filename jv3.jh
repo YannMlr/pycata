@@ -1,0 +1,71 @@
+
+entity Media{
+	url String,
+    nom String,
+    type Integer,
+	
+}
+
+entity Quizz {
+	sujet String,
+    score Integer
+}
+
+
+entity Evenement {
+    intitule String
+}
+
+entity Question {
+    intitule String,    
+
+}
+
+entity ReponseJoueur{
+		dateEnvoi Long,
+        dateReponse Long
+        score Integer
+}
+
+entity Theme {
+    intitule String
+}
+
+
+
+entity ReponsePossible {
+	intitule String,
+	vrai Boolean,
+    
+}
+
+entity Niveau {
+	intitule String,
+
+}
+
+entity Joueur{
+    idUser Long
+}
+
+
+relationship OneToMany {
+	Quizz to Question{quizz}
+    Evenement to Quizz{evenement}
+    Theme to Question{theme}
+    Question to ReponsePossible{question}
+    Niveau to Question{niveau}
+    Joueur to ReponseJoueur{joueur}
+    ReponsePossible to ReponseJoueur{reponsePossible}
+	Media to Question{media}
+    Media to ReponsePossible{media}
+}
+
+
+
+
+
+
+
+
+

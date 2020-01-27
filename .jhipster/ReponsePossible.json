@@ -1,0 +1,45 @@
+{
+    "name": "ReponsePossible",
+    "fields": [
+        {
+            "fieldName": "intitule",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vrai",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "reponseJoueur",
+            "otherEntityRelationshipName": "reponsePossible",
+            "relationshipName": "reponseJoueur"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "question",
+            "otherEntityRelationshipName": "reponsePossible",
+            "relationshipName": "question",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "media",
+            "otherEntityRelationshipName": "reponsePossible",
+            "relationshipName": "media",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200109164413",
+    "entityTableName": "reponse_possible",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

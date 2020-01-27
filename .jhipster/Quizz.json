@@ -1,0 +1,38 @@
+{
+    "name": "Quizz",
+    "fields": [
+        {
+            "fieldName": "sujet",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "score",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "question",
+            "otherEntityRelationshipName": "quizz",
+            "relationshipName": "question"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "evenement",
+            "otherEntityRelationshipName": "quizz",
+            "relationshipName": "evenement",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200109164408",
+    "entityTableName": "quizz",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

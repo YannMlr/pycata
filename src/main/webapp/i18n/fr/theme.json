@@ -1,0 +1,23 @@
+{
+  "pycataApp": {
+    "theme": {
+      "home": {
+        "title": "Themes",
+        "createLabel": "Créer un nouveau Theme",
+        "createOrEditLabel": "Créer ou éditer un Theme",
+        "notFound": "Aucun Theme trouvé"
+      },
+      "created": "Un nouveau Theme a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Theme avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Theme avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Theme {{ id }} ?"
+      },
+      "detail": {
+        "title": "Theme"
+      },
+      "intitule": "Intitule",
+      "question": "Question"
+    }
+  }
+}

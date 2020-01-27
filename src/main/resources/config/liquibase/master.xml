@@ -14,6 +14,20 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164407_added_entity_Media.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164408_added_entity_Quizz.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164409_added_entity_Evenement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164410_added_entity_Question.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164411_added_entity_ReponseJoueur.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164412_added_entity_Theme.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164413_added_entity_ReponsePossible.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164414_added_entity_Niveau.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164415_added_entity_Joueur.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200109164408_added_entity_constraints_Quizz.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164410_added_entity_constraints_Question.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164411_added_entity_constraints_ReponseJoueur.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164413_added_entity_constraints_ReponsePossible.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200109164415_added_entity_constraints_Joueur.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
