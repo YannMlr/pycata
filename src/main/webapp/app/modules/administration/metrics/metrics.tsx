@@ -44,9 +44,7 @@ export const MetricsPage = (props: IMetricsPageProps) => {
         <Button onClick={getMetrics} color={isFetching ? 'btn btn-danger' : 'btn btn-primary'} disabled={isFetching}>
           <FontAwesomeIcon icon="sync" />
           &nbsp;
-          <Translate component="span" contentKey="health.refresh.button">
-            Refresh
-          </Translate>
+          Rafraichir
         </Button>
       </p>
       <hr />

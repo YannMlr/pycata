@@ -27,7 +27,7 @@ export const PrivateRouteComponent = ({
     ) : (
       <div className="insufficient-authority">
         <div className="alert alert-danger">
-          <Translate contentKey="error.http.403">You are not authorized to access this page.</Translate>
+          Vous n'avez pas les droits d'acces a cette page.
         </div>
       </div>
     );
