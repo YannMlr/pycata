@@ -34,8 +34,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = {PycataApp.class, TestSecurityConfiguration.class})
 public class JoueurResourceIT {
 
-    private static final Long DEFAULT_ID_USER = 1L;
-    private static final Long UPDATED_ID_USER = 2L;
+    private static final String DEFAULT_ID_USER = "AAAAAAAAAA";
+    private static final String UPDATED_ID_USER = "BBBBBBBBBB";
 
     @Autowired
     private JoueurRepository joueurRepository;
@@ -148,7 +148,7 @@ public class JoueurResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(joueur.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idUser").value(hasItem(DEFAULT_ID_USER.intValue())));
+            .andExpect(jsonPath("$.[*].idUser").value(hasItem(DEFAULT_ID_USER)));
     }
     
     @Test
@@ -162,7 +162,7 @@ public class JoueurResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(joueur.getId().intValue()))
-            .andExpect(jsonPath("$.idUser").value(DEFAULT_ID_USER.intValue()));
+            .andExpect(jsonPath("$.idUser").value(DEFAULT_ID_USER));
     }
 
     @Test

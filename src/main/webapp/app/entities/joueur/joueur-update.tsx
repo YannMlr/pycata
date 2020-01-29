@@ -79,7 +79,7 @@ export const JoueurUpdate = (props: IJoueurUpdateProps) => {
                 <Label id="idUserLabel" for="joueur-idUser">
                   <Translate contentKey="pycataApp.joueur.idUser">Id User</Translate>
                 </Label>
-                <AvField id="joueur-idUser" type="string" className="form-control" name="idUser" />
+                <AvField id="joueur-idUser" type="text" name="idUser" />
               </AvGroup>
               <Button tag={Link} id="cancel-save" to="/joueur" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />

@@ -3,7 +3,7 @@
     "fields": [
         {
             "fieldName": "idUser",
-            "fieldType": "Long"
+            "fieldType": "String"
         }
     ],
     "relationships": [

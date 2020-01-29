@@ -23,7 +23,7 @@ public class Joueur implements Serializable {
     private Long id;
 
     @Column(name = "id_user")
-    private Long idUser;
+    private String idUser;
 
     @OneToMany(mappedBy = "joueur")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -38,16 +38,16 @@ public class Joueur implements Serializable {
         this.id = id;
     }
 
-    public Long getIdUser() {
+    public String getIdUser() {
         return idUser;
     }
 
-    public Joueur idUser(Long idUser) {
+    public Joueur idUser(String idUser) {
         this.idUser = idUser;
         return this;
     }
 
-    public void setIdUser(Long idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 
@@ -97,7 +97,7 @@ public class Joueur implements Serializable {
     public String toString() {
         return "Joueur{" +
             "id=" + getId() +
-            ", idUser=" + getIdUser() +
+            ", idUser='" + getIdUser() + "'" +
             "}";
     }
 }

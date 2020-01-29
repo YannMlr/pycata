@@ -2,7 +2,7 @@ import { IReponseJoueur } from 'app/shared/model/reponse-joueur.model';
 
 export interface IJoueur {
   id?: number;
-  idUser?: number;
+  idUser?: string;
   reponseJoueurs?: IReponseJoueur[];
 }
 
