@@ -22,43 +22,43 @@ export const QuestionDetail = (props: IQuestionDetailProps) => {
     <Row>
       <Col md="8">
         <h2>
-          <Translate contentKey="pycataApp.question.detail.title">Question</Translate> [<b>{questionEntity.id}</b>]
+          Question [<b>{questionEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
             <span id="intitule">
-              <Translate contentKey="pycataApp.question.intitule">Intitule</Translate>
+              Intitule
             </span>
           </dt>
           <dd>{questionEntity.intitule}</dd>
           <dt>
-            <Translate contentKey="pycataApp.question.quizz">Quizz</Translate>
+            Quizz
           </dt>
           <dd>{questionEntity.quizz ? questionEntity.quizz.id : ''}</dd>
           <dt>
-            <Translate contentKey="pycataApp.question.theme">Theme</Translate>
+            Theme
           </dt>
           <dd>{questionEntity.theme ? questionEntity.theme.id : ''}</dd>
           <dt>
-            <Translate contentKey="pycataApp.question.niveau">Niveau</Translate>
+            Niveau
           </dt>
           <dd>{questionEntity.niveau ? questionEntity.niveau.id : ''}</dd>
           <dt>
-            <Translate contentKey="pycataApp.question.media">Media</Translate>
+            Media
           </dt>
           <dd>{questionEntity.media ? questionEntity.media.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/question" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
+            Retour
           </span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/question/${questionEntity.id}/edit`} replace color="primary">
           <FontAwesomeIcon icon="pencil-alt" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.edit">Edit</Translate>
+            Editer
           </span>
         </Button>
       </Col>

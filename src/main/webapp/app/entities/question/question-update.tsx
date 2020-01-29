@@ -74,7 +74,7 @@ export const QuestionUpdate = (props: IQuestionUpdateProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="pycataApp.question.home.createOrEditLabel">
-            <Translate contentKey="pycataApp.question.home.createOrEditLabel">Create or edit a Question</Translate>
+            Creer ou editer une Question
           </h2>
         </Col>
       </Row>
@@ -87,20 +87,20 @@ export const QuestionUpdate = (props: IQuestionUpdateProps) => {
               {!isNew ? (
                 <AvGroup>
                   <Label for="question-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
+                    ID
                   </Label>
                   <AvInput id="question-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
                 <Label id="intituleLabel" for="question-intitule">
-                  <Translate contentKey="pycataApp.question.intitule">Intitule</Translate>
+                  Intitule
                 </Label>
                 <AvField id="question-intitule" type="text" name="intitule" />
               </AvGroup>
               <AvGroup>
                 <Label for="question-quizz">
-                  <Translate contentKey="pycataApp.question.quizz">Quizz</Translate>
+                  Quizz
                 </Label>
                 <AvInput id="question-quizz" type="select" className="form-control" name="quizz.id">
                   <option value="" key="0" />
@@ -115,7 +115,7 @@ export const QuestionUpdate = (props: IQuestionUpdateProps) => {
               </AvGroup>
               <AvGroup>
                 <Label for="question-theme">
-                  <Translate contentKey="pycataApp.question.theme">Theme</Translate>
+                  Theme
                 </Label>
                 <AvInput id="question-theme" type="select" className="form-control" name="theme.id">
                   <option value="" key="0" />
@@ -130,7 +130,7 @@ export const QuestionUpdate = (props: IQuestionUpdateProps) => {
               </AvGroup>
               <AvGroup>
                 <Label for="question-niveau">
-                  <Translate contentKey="pycataApp.question.niveau">Niveau</Translate>
+                  Niveau
                 </Label>
                 <AvInput id="question-niveau" type="select" className="form-control" name="niveau.id">
                   <option value="" key="0" />
@@ -145,7 +145,7 @@ export const QuestionUpdate = (props: IQuestionUpdateProps) => {
               </AvGroup>
               <AvGroup>
                 <Label for="question-media">
-                  <Translate contentKey="pycataApp.question.media">Media</Translate>
+                  Media
                 </Label>
                 <AvInput id="question-media" type="select" className="form-control" name="media.id">
                   <option value="" key="0" />
@@ -162,14 +162,14 @@ export const QuestionUpdate = (props: IQuestionUpdateProps) => {
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
+                  Retour
                 </span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
+                Sauvegarder
               </Button>
             </AvForm>
           )}
