@@ -57,7 +57,7 @@ export const ThemeUpdate = (props: IThemeUpdateProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="pycataApp.theme.home.createOrEditLabel">
-            <Translate contentKey="pycataApp.theme.home.createOrEditLabel">Create or edit a Theme</Translate>
+            Creer ou editer un Theme
           </h2>
         </Col>
       </Row>
@@ -70,14 +70,14 @@ export const ThemeUpdate = (props: IThemeUpdateProps) => {
               {!isNew ? (
                 <AvGroup>
                   <Label for="theme-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
+                    ID
                   </Label>
                   <AvInput id="theme-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
                 <Label id="intituleLabel" for="theme-intitule">
-                  <Translate contentKey="pycataApp.theme.intitule">Intitule</Translate>
+                  Intitule
                 </Label>
                 <AvField id="theme-intitule" type="text" name="intitule" />
               </AvGroup>
@@ -85,14 +85,14 @@ export const ThemeUpdate = (props: IThemeUpdateProps) => {
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
+                  Retour
                 </span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
+                Sauvegarder
               </Button>
             </AvForm>
           )}

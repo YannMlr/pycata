@@ -34,23 +34,21 @@ export const ThemeDeleteDialog = (props: IThemeDeleteDialogProps) => {
   return (
     <Modal isOpen toggle={handleClose}>
       <ModalHeader toggle={handleClose}>
-        <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
+        Confirmer la suppression
       </ModalHeader>
-      <ModalBody id="pycataApp.theme.delete.question">
-        <Translate contentKey="pycataApp.theme.delete.question" interpolate={{ id: themeEntity.id }}>
-          Are you sure you want to delete this Theme?
-        </Translate>
+      <ModalBody id="pycataApp.theme.delete.question" interpolate={{ id: themeEntity.id }}>
+          Etes vous sur de vouloir supprimer ce Theme?
       </ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
           &nbsp;
-          <Translate contentKey="entity.action.cancel">Cancel</Translate>
+          Annuler
         </Button>
         <Button id="jhi-confirm-delete-theme" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
-          <Translate contentKey="entity.action.delete">Delete</Translate>
+          Supprimer
         </Button>
       </ModalFooter>
     </Modal>
