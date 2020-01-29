@@ -96,12 +96,12 @@ export const QuizzUpdate = (props: IQuizzUpdateProps) => {
                 <Label for="quizz-evenement">
                   Evenement
                 </Label>
-                <AvInput id="quizz-evenement" type="select" className="form-control" name="evenement.id">
+                <AvInput id="quizz-evenement" type="select" className="form-control" name="evenement.intitule">
                   <option value="" key="0" />
                   {evenements
                     ? evenements.map(otherEntity => (
-                        <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                        <option value={otherEntity.intitule} key={otherEntity.intitule}>
+                          {otherEntity.intitule}
                         </option>
                       ))
                     : null}
