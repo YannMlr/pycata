@@ -62,7 +62,7 @@ export const QuizzUpdate = (props: IQuizzUpdateProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="pycataApp.quizz.home.createOrEditLabel">
-            <Translate contentKey="pycataApp.quizz.home.createOrEditLabel">Create or edit a Quizz</Translate>
+            Creer ou editer un Quizz
           </h2>
         </Col>
       </Row>
@@ -75,26 +75,26 @@ export const QuizzUpdate = (props: IQuizzUpdateProps) => {
               {!isNew ? (
                 <AvGroup>
                   <Label for="quizz-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
+                    ID
                   </Label>
                   <AvInput id="quizz-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
                 <Label id="sujetLabel" for="quizz-sujet">
-                  <Translate contentKey="pycataApp.quizz.sujet">Sujet</Translate>
+                  Sujet
                 </Label>
                 <AvField id="quizz-sujet" type="text" name="sujet" />
               </AvGroup>
               <AvGroup>
                 <Label id="scoreLabel" for="quizz-score">
-                  <Translate contentKey="pycataApp.quizz.score">Score</Translate>
+                  Score
                 </Label>
                 <AvField id="quizz-score" type="string" className="form-control" name="score" />
               </AvGroup>
               <AvGroup>
                 <Label for="quizz-evenement">
-                  <Translate contentKey="pycataApp.quizz.evenement">Evenement</Translate>
+                  Evenement
                 </Label>
                 <AvInput id="quizz-evenement" type="select" className="form-control" name="evenement.id">
                   <option value="" key="0" />
@@ -111,14 +111,14 @@ export const QuizzUpdate = (props: IQuizzUpdateProps) => {
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
+                  Retour
                 </span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
+                Sauvegarder
               </Button>
             </AvForm>
           )}
