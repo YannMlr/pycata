@@ -22,47 +22,47 @@ export const ReponseJoueurDetail = (props: IReponseJoueurDetailProps) => {
     <Row>
       <Col md="8">
         <h2>
-          <Translate contentKey="pycataApp.reponseJoueur.detail.title">ReponseJoueur</Translate> [<b>{reponseJoueurEntity.id}</b>]
+          ReponseJoueur [<b>{reponseJoueurEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
             <span id="dateEnvoi">
-              <Translate contentKey="pycataApp.reponseJoueur.dateEnvoi">Date Envoi</Translate>
+              Date Envoi
             </span>
           </dt>
           <dd>{reponseJoueurEntity.dateEnvoi}</dd>
           <dt>
             <span id="dateReponse">
-              <Translate contentKey="pycataApp.reponseJoueur.dateReponse">Date Reponse</Translate>
+              Date Reponse
             </span>
           </dt>
           <dd>{reponseJoueurEntity.dateReponse}</dd>
           <dt>
             <span id="score">
-              <Translate contentKey="pycataApp.reponseJoueur.score">Score</Translate>
+              Score
             </span>
           </dt>
           <dd>{reponseJoueurEntity.score}</dd>
           <dt>
-            <Translate contentKey="pycataApp.reponseJoueur.joueur">Joueur</Translate>
+            Joueur
           </dt>
           <dd>{reponseJoueurEntity.joueur ? reponseJoueurEntity.joueur.id : ''}</dd>
           <dt>
-            <Translate contentKey="pycataApp.reponseJoueur.reponsePossible">Reponse Possible</Translate>
+            Reponse Possible
           </dt>
           <dd>{reponseJoueurEntity.reponsePossible ? reponseJoueurEntity.reponsePossible.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/reponse-joueur" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
+            Retour
           </span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/reponse-joueur/${reponseJoueurEntity.id}/edit`} replace color="primary">
           <FontAwesomeIcon icon="pencil-alt" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.edit">Edit</Translate>
+            Editer
           </span>
         </Button>
       </Col>
