@@ -57,7 +57,7 @@ export const JoueurUpdate = (props: IJoueurUpdateProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="pycataApp.joueur.home.createOrEditLabel">
-            <Translate contentKey="pycataApp.joueur.home.createOrEditLabel">Create or edit a Joueur</Translate>
+            Creer ou editer un Joueur
           </h2>
         </Col>
       </Row>
@@ -70,14 +70,14 @@ export const JoueurUpdate = (props: IJoueurUpdateProps) => {
               {!isNew ? (
                 <AvGroup>
                   <Label for="joueur-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
+                    ID
                   </Label>
                   <AvInput id="joueur-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
                 <Label id="idUserLabel" for="joueur-idUser">
-                  <Translate contentKey="pycataApp.joueur.idUser">Id User</Translate>
+                  Id User
                 </Label>
                 <AvField id="joueur-idUser" type="text" name="idUser" />
               </AvGroup>
@@ -85,14 +85,14 @@ export const JoueurUpdate = (props: IJoueurUpdateProps) => {
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
+                  Retour
                 </span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
+                Sauvegarder
               </Button>
             </AvForm>
           )}
