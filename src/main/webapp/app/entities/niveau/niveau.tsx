@@ -21,11 +21,11 @@ export const Niveau = (props: INiveauProps) => {
   return (
     <div>
       <h2 id="niveau-heading">
-        <Translate contentKey="pycataApp.niveau.home.title">Niveaus</Translate>
+        Niveaux
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;
-          <Translate contentKey="pycataApp.niveau.home.createLabel">Create new Niveau</Translate>
+          Creer un nouveau niveau
         </Link>
       </h2>
       <div className="table-responsive">
@@ -34,10 +34,10 @@ export const Niveau = (props: INiveauProps) => {
             <thead>
               <tr>
                 <th>
-                  <Translate contentKey="global.field.id">ID</Translate>
+                  ID
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.niveau.intitule">Intitule</Translate>
+                  Intitule
                 </th>
                 <th />
               </tr>
@@ -56,19 +56,19 @@ export const Niveau = (props: INiveauProps) => {
                       <Button tag={Link} to={`${match.url}/${niveau.id}`} color="info" size="sm">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.view">View</Translate>
+                          Detail
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${niveau.id}/edit`} color="primary" size="sm">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
+                          Editer
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${niveau.id}/delete`} color="danger" size="sm">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
+                          Supprimer
                         </span>
                       </Button>
                     </div>
@@ -79,7 +79,7 @@ export const Niveau = (props: INiveauProps) => {
           </Table>
         ) : (
           <div className="alert alert-warning">
-            <Translate contentKey="pycataApp.niveau.home.notFound">No Niveaus found</Translate>
+            Aucun niveau trouve
           </div>
         )}
       </div>

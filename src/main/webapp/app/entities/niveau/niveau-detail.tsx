@@ -22,12 +22,12 @@ export const NiveauDetail = (props: INiveauDetailProps) => {
     <Row>
       <Col md="8">
         <h2>
-          <Translate contentKey="pycataApp.niveau.detail.title">Niveau</Translate> [<b>{niveauEntity.id}</b>]
+          Niveau [<b>{niveauEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
             <span id="intitule">
-              <Translate contentKey="pycataApp.niveau.intitule">Intitule</Translate>
+              Intitule
             </span>
           </dt>
           <dd>{niveauEntity.intitule}</dd>
@@ -35,14 +35,14 @@ export const NiveauDetail = (props: INiveauDetailProps) => {
         <Button tag={Link} to="/niveau" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
+            Retour
           </span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/niveau/${niveauEntity.id}/edit`} replace color="primary">
           <FontAwesomeIcon icon="pencil-alt" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.edit">Edit</Translate>
+            Editer
           </span>
         </Button>
       </Col>

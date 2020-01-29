@@ -57,7 +57,7 @@ export const NiveauUpdate = (props: INiveauUpdateProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="pycataApp.niveau.home.createOrEditLabel">
-            <Translate contentKey="pycataApp.niveau.home.createOrEditLabel">Create or edit a Niveau</Translate>
+            Creer ou editer un Niveau
           </h2>
         </Col>
       </Row>
@@ -70,14 +70,14 @@ export const NiveauUpdate = (props: INiveauUpdateProps) => {
               {!isNew ? (
                 <AvGroup>
                   <Label for="niveau-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
+                    ID
                   </Label>
                   <AvInput id="niveau-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
                 <Label id="intituleLabel" for="niveau-intitule">
-                  <Translate contentKey="pycataApp.niveau.intitule">Intitule</Translate>
+                  Intitule
                 </Label>
                 <AvField id="niveau-intitule" type="text" name="intitule" />
               </AvGroup>
@@ -85,14 +85,14 @@ export const NiveauUpdate = (props: INiveauUpdateProps) => {
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
+                  Retour
                 </span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
+                Sauvegarder
               </Button>
             </AvForm>
           )}
