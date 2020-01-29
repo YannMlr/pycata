@@ -22,24 +22,24 @@ export const MediaDetail = (props: IMediaDetailProps) => {
     <Row>
       <Col md="8">
         <h2>
-          <Translate contentKey="pycataApp.media.detail.title">Media</Translate> [<b>{mediaEntity.id}</b>]
+          Media [<b>{mediaEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
             <span id="url">
-              <Translate contentKey="pycataApp.media.url">Url</Translate>
+              Url
             </span>
           </dt>
           <dd>{mediaEntity.url}</dd>
           <dt>
             <span id="nom">
-              <Translate contentKey="pycataApp.media.nom">Nom</Translate>
+              Nom
             </span>
           </dt>
           <dd>{mediaEntity.nom}</dd>
           <dt>
             <span id="type">
-              <Translate contentKey="pycataApp.media.type">Type</Translate>
+              Type
             </span>
           </dt>
           <dd>{mediaEntity.type}</dd>
@@ -47,14 +47,14 @@ export const MediaDetail = (props: IMediaDetailProps) => {
         <Button tag={Link} to="/media" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
+            Retour
           </span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/media/${mediaEntity.id}/edit`} replace color="primary">
           <FontAwesomeIcon icon="pencil-alt" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.edit">Edit</Translate>
+            Editer
           </span>
         </Button>
       </Col>

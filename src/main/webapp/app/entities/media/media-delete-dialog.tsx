@@ -34,23 +34,21 @@ export const MediaDeleteDialog = (props: IMediaDeleteDialogProps) => {
   return (
     <Modal isOpen toggle={handleClose}>
       <ModalHeader toggle={handleClose}>
-        <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
+        Confirmer la suppression
       </ModalHeader>
-      <ModalBody id="pycataApp.media.delete.question">
-        <Translate contentKey="pycataApp.media.delete.question" interpolate={{ id: mediaEntity.id }}>
-          Are you sure you want to delete this Media?
-        </Translate>
+      <ModalBody id="pycataApp.media.delete.question" interpolate={{ id: mediaEntity.id }}>
+        Etes vous sur de vouloir supprimer ce Media?
       </ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
           &nbsp;
-          <Translate contentKey="entity.action.cancel">Cancel</Translate>
+          Annuler
         </Button>
         <Button id="jhi-confirm-delete-media" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
-          <Translate contentKey="entity.action.delete">Delete</Translate>
+          Supprimer
         </Button>
       </ModalFooter>
     </Modal>
