@@ -50,7 +50,7 @@ public class QuizzResource {
 
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
-    
+
     @Autowired
     private UserService userService;
 
@@ -87,7 +87,7 @@ public class QuizzResource {
      * {@code POST  /quizzes} : Links players to quizzes through ReponseJoueur class.
      *
      * @param quizz id and joueur id.
-     * 
+     *
      */
     @PostMapping("/quizz-add-joueur")
     public void addJoueurToQuizz(@RequestParam("id") Long id, @RequestParam("id_joueur") Long id_joueur) {
@@ -100,7 +100,7 @@ public class QuizzResource {
         	reponseJoueurRepository.save(reponseJoueur);
         }
     }
-    
+
     /**
      * {@code PUT  /quizzes} : Updates an existing quizz.
      *
@@ -134,16 +134,16 @@ public class QuizzResource {
         return quizzRepository.findAll();
     }
 
-    
+
     @GetMapping("/quizzesJoueur")
     public ResponseEntity<Joueur> getJoueur() {
-    	User user = userService.getUserWithAuthorities().get();
-    	
+    	//User user = userService.getUserWithAuthorities().get();
+
     	return ResponseEntity.ok()
-                .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, user.getId()))
-                .body(quizzRepository.getJoueurByUser(user.getId()));
+                .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, userService.getUserWithAuthorities().get().getId()))
+                .body(joueurRepository.getJoueurByIdUser(userService.getUserWithAuthorities().get().getId()));
     }
-    
+
     /**
      * {@code GET  /quizzes/:id} : get the "id" quizz.
      *
