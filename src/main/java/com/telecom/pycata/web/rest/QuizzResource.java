@@ -98,7 +98,7 @@ public class QuizzResource {
      * @param id the id of the quizz to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the quizz, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/choix/{id}")
+    @GetMapping("/quizzes/{id}")
     public ResponseEntity<Quizz> getQuizz(@PathVariable Long id) {
         log.debug("REST request to get Quizz : {}", id);
         Optional<Quizz> quizz = quizzRepository.findById(id);
@@ -117,4 +117,21 @@ public class QuizzResource {
         quizzRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+
+
+
+    /**
+     * {@code GET  /quizzes/:id} : get the "id" quizz.
+     *
+     * @param id the id of the quizz to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the quizz, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/choix/{id}")
+    public ResponseEntity<Quizz> getChoix(@PathVariable Long id) {
+        log.debug("REST request to get Quizz : {}", id);
+        Optional<Quizz> quizz = quizzRepository.findById(id);
+        return ResponseUtil.wrapOrNotFound(quizz);
+    }
+
+
 }
