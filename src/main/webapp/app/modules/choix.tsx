@@ -17,6 +17,8 @@ export interface IChoixProps extends StateProps, DispatchProps, RouteComponentPr
 
 export const Choix = (props: IChoixProps) => {
 
+
+
   useEffect(() => {
     props.getEntity(props.match.params.id);
   }, []);
@@ -30,8 +32,7 @@ export const Choix = (props: IChoixProps) => {
           Veuillez choisir votre quizz !
         </h2>
         <p className="lead">
-
-          {quizzEntity.sujet}
+          {quizzEntity.auth}
         </p>
 
       </Col>

@@ -4,6 +4,7 @@ import com.telecom.pycata.PycataApp;
 import com.telecom.pycata.config.TestSecurityConfiguration;
 import com.telecom.pycata.domain.Quizz;
 import com.telecom.pycata.repository.QuizzRepository;
+import com.telecom.pycata.service.UserService;
 import com.telecom.pycata.web.rest.errors.ExceptionTranslator;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -44,6 +45,10 @@ public class QuizzResourceIT {
     private QuizzRepository quizzRepository;
 
     @Autowired
+    private UserService userService;
+
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -65,7 +70,7 @@ public class QuizzResourceIT {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final QuizzResource quizzResource = new QuizzResource(quizzRepository);
+        final QuizzResource quizzResource = new QuizzResource(quizzRepository, userService );
         this.restQuizzMockMvc = MockMvcBuilders.standaloneSetup(quizzResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -157,7 +162,7 @@ public class QuizzResourceIT {
             .andExpect(jsonPath("$.[*].sujet").value(hasItem(DEFAULT_SUJET)))
             .andExpect(jsonPath("$.[*].score").value(hasItem(DEFAULT_SCORE)));
     }
-    
+
     @Test
     @Transactional
     public void getQuizz() throws Exception {
