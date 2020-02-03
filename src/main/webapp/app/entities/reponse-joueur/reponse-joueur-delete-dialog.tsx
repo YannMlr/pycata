@@ -34,23 +34,21 @@ export const ReponseJoueurDeleteDialog = (props: IReponseJoueurDeleteDialogProps
   return (
     <Modal isOpen toggle={handleClose}>
       <ModalHeader toggle={handleClose}>
-        <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
+        Confirmer la suppression
       </ModalHeader>
-      <ModalBody id="pycataApp.reponseJoueur.delete.question">
-        <Translate contentKey="pycataApp.reponseJoueur.delete.question" interpolate={{ id: reponseJoueurEntity.id }}>
-          Are you sure you want to delete this ReponseJoueur?
-        </Translate>
+      <ModalBody id="pycataApp.reponseJoueur.delete.question" interpolate={{ id: reponseJoueurEntity.id }}>
+          Etes vous sur de vouloir supprimer cette ReponseJoueur?
       </ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
           &nbsp;
-          <Translate contentKey="entity.action.cancel">Cancel</Translate>
+          Annuler
         </Button>
         <Button id="jhi-confirm-delete-reponseJoueur" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
-          <Translate contentKey="entity.action.delete">Delete</Translate>
+          Supprimer
         </Button>
       </ModalFooter>
     </Modal>

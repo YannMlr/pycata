@@ -2,15 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
-import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
+import { AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
+import { Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
 import { getEntity, updateEntity, createEntity, reset } from './evenement.reducer';
-import { IEvenement } from 'app/shared/model/evenement.model';
-import { convertDateTimeFromServer, convertDateTimeToServer } from 'app/shared/util/date-utils';
-import { mapIdList } from 'app/shared/util/entity-utils';
 
 export interface IEvenementUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -57,7 +54,7 @@ export const EvenementUpdate = (props: IEvenementUpdateProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="pycataApp.evenement.home.createOrEditLabel">
-            <Translate contentKey="pycataApp.evenement.home.createOrEditLabel">Create or edit a Evenement</Translate>
+            Creer ou editer un evenement
           </h2>
         </Col>
       </Row>
@@ -70,14 +67,14 @@ export const EvenementUpdate = (props: IEvenementUpdateProps) => {
               {!isNew ? (
                 <AvGroup>
                   <Label for="evenement-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
+                    ID
                   </Label>
                   <AvInput id="evenement-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
                 <Label id="intituleLabel" for="evenement-intitule">
-                  <Translate contentKey="pycataApp.evenement.intitule">Intitule</Translate>
+                  Intitule
                 </Label>
                 <AvField id="evenement-intitule" type="text" name="intitule" />
               </AvGroup>
@@ -85,14 +82,14 @@ export const EvenementUpdate = (props: IEvenementUpdateProps) => {
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
+                  Retour
                 </span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
+                Sauvegarder
               </Button>
             </AvForm>
           )}

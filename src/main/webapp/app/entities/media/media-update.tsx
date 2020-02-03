@@ -57,7 +57,7 @@ export const MediaUpdate = (props: IMediaUpdateProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="pycataApp.media.home.createOrEditLabel">
-            <Translate contentKey="pycataApp.media.home.createOrEditLabel">Create or edit a Media</Translate>
+            Creer ou editer un Media
           </h2>
         </Col>
       </Row>
@@ -70,26 +70,26 @@ export const MediaUpdate = (props: IMediaUpdateProps) => {
               {!isNew ? (
                 <AvGroup>
                   <Label for="media-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
+                    ID
                   </Label>
                   <AvInput id="media-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
                 <Label id="urlLabel" for="media-url">
-                  <Translate contentKey="pycataApp.media.url">Url</Translate>
+                  Url
                 </Label>
                 <AvField id="media-url" type="text" name="url" />
               </AvGroup>
               <AvGroup>
                 <Label id="nomLabel" for="media-nom">
-                  <Translate contentKey="pycataApp.media.nom">Nom</Translate>
+                  Nom
                 </Label>
                 <AvField id="media-nom" type="text" name="nom" />
               </AvGroup>
               <AvGroup>
                 <Label id="typeLabel" for="media-type">
-                  <Translate contentKey="pycataApp.media.type">Type</Translate>
+                  Type
                 </Label>
                 <AvField id="media-type" type="string" className="form-control" name="type" />
               </AvGroup>
@@ -97,14 +97,14 @@ export const MediaUpdate = (props: IMediaUpdateProps) => {
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
+                  Retour
                 </span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
+                Sauvegarder
               </Button>
             </AvForm>
           )}

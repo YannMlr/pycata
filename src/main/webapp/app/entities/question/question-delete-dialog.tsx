@@ -34,23 +34,21 @@ export const QuestionDeleteDialog = (props: IQuestionDeleteDialogProps) => {
   return (
     <Modal isOpen toggle={handleClose}>
       <ModalHeader toggle={handleClose}>
-        <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
+        Confirmer la suppression
       </ModalHeader>
-      <ModalBody id="pycataApp.question.delete.question">
-        <Translate contentKey="pycataApp.question.delete.question" interpolate={{ id: questionEntity.id }}>
-          Are you sure you want to delete this Question?
-        </Translate>
+      <ModalBody id="pycataApp.question.delete.question" interpolate={{ id: questionEntity.id }}>
+          Etes vous sur de vouloir supprimer cette Question?
       </ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
           &nbsp;
-          <Translate contentKey="entity.action.cancel">Cancel</Translate>
+          Annuler
         </Button>
         <Button id="jhi-confirm-delete-question" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
-          <Translate contentKey="entity.action.delete">Delete</Translate>
+          Supprimer
         </Button>
       </ModalFooter>
     </Modal>

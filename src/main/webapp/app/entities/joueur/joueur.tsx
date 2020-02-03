@@ -21,11 +21,11 @@ export const Joueur = (props: IJoueurProps) => {
   return (
     <div>
       <h2 id="joueur-heading">
-        <Translate contentKey="pycataApp.joueur.home.title">Joueurs</Translate>
+        Joueurs
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;
-          <Translate contentKey="pycataApp.joueur.home.createLabel">Create new Joueur</Translate>
+          Creer un nouveau Joueur
         </Link>
       </h2>
       <div className="table-responsive">
@@ -34,10 +34,10 @@ export const Joueur = (props: IJoueurProps) => {
             <thead>
               <tr>
                 <th>
-                  <Translate contentKey="global.field.id">ID</Translate>
+                  ID
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.joueur.idUser">Id User</Translate>
+                  Id User
                 </th>
                 <th />
               </tr>
@@ -56,19 +56,19 @@ export const Joueur = (props: IJoueurProps) => {
                       <Button tag={Link} to={`${match.url}/${joueur.id}`} color="info" size="sm">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.view">View</Translate>
+                          Details
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${joueur.id}/edit`} color="primary" size="sm">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
+                          Editer
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${joueur.id}/delete`} color="danger" size="sm">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
+                          Supprimer
                         </span>
                       </Button>
                     </div>
@@ -79,7 +79,7 @@ export const Joueur = (props: IJoueurProps) => {
           </Table>
         ) : (
           <div className="alert alert-warning">
-            <Translate contentKey="pycataApp.joueur.home.notFound">No Joueurs found</Translate>
+            Aucun joueur trouvé
           </div>
         )}
       </div>

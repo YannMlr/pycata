@@ -3,6 +3,7 @@ package com.telecom.pycata.service.dto;
 import com.telecom.pycata.config.Constants;
 
 import com.telecom.pycata.domain.Authority;
+import com.telecom.pycata.domain.Joueur;
 import com.telecom.pycata.domain.User;
 
 import javax.validation.constraints.*;
@@ -55,7 +56,9 @@ public class UserDTO {
     }
 
     public UserDTO(User user) {
+        Joueur j = new Joueur();
         this.id = user.getId();
+        j.setIdUser(this.id);
         this.login = user.getLogin();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();

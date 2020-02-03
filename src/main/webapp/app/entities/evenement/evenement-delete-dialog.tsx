@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
-import { Translate, ICrudGetAction, ICrudDeleteAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { IEvenement } from 'app/shared/model/evenement.model';
 import { IRootState } from 'app/shared/reducers';
 import { getEntity, deleteEntity } from './evenement.reducer';
 
@@ -34,23 +32,21 @@ export const EvenementDeleteDialog = (props: IEvenementDeleteDialogProps) => {
   return (
     <Modal isOpen toggle={handleClose}>
       <ModalHeader toggle={handleClose}>
-        <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
+        Confirmer la suppression
       </ModalHeader>
-      <ModalBody id="pycataApp.evenement.delete.question">
-        <Translate contentKey="pycataApp.evenement.delete.question" interpolate={{ id: evenementEntity.id }}>
-          Are you sure you want to delete this Evenement?
-        </Translate>
+      <ModalBody id="pycataApp.evenement.delete.question" interpolate={{ id: evenementEntity.id }}>
+          Etes vous sur de vouloir supprimer cet evenement?
       </ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
           &nbsp;
-          <Translate contentKey="entity.action.cancel">Cancel</Translate>
+          Annuler
         </Button>
         <Button id="jhi-confirm-delete-evenement" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
-          <Translate contentKey="entity.action.delete">Delete</Translate>
+          Supprimer
         </Button>
       </ModalFooter>
     </Modal>

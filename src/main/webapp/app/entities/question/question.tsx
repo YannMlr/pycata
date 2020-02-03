@@ -25,7 +25,7 @@ export const Question = (props: IQuestionProps) => {
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;
-          <Translate contentKey="pycataApp.question.home.createLabel">Create new Question</Translate>
+          Creer une nouvelle Question
         </Link>
       </h2>
       <div className="table-responsive">
@@ -34,22 +34,22 @@ export const Question = (props: IQuestionProps) => {
             <thead>
               <tr>
                 <th>
-                  <Translate contentKey="global.field.id">ID</Translate>
+                  ID
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.question.intitule">Intitule</Translate>
+                  Intitule
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.question.quizz">Quizz</Translate>
+                  Quizz
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.question.theme">Theme</Translate>
+                  Theme
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.question.niveau">Niveau</Translate>
+                  Niveau
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.question.media">Media</Translate>
+                  Media
                 </th>
                 <th />
               </tr>
@@ -72,19 +72,19 @@ export const Question = (props: IQuestionProps) => {
                       <Button tag={Link} to={`${match.url}/${question.id}`} color="info" size="sm">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.view">View</Translate>
+                          Detail
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${question.id}/edit`} color="primary" size="sm">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
+                          Editer
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${question.id}/delete`} color="danger" size="sm">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
+                          Supprimer
                         </span>
                       </Button>
                     </div>
@@ -95,7 +95,7 @@ export const Question = (props: IQuestionProps) => {
           </Table>
         ) : (
           <div className="alert alert-warning">
-            <Translate contentKey="pycataApp.question.home.notFound">No Questions found</Translate>
+            Aucune Question Trouve
           </div>
         )}
       </div>

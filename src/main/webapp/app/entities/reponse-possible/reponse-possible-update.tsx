@@ -66,7 +66,7 @@ export const ReponsePossibleUpdate = (props: IReponsePossibleUpdateProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="pycataApp.reponsePossible.home.createOrEditLabel">
-            <Translate contentKey="pycataApp.reponsePossible.home.createOrEditLabel">Create or edit a ReponsePossible</Translate>
+            Creer ou editer une ReponsePossible
           </h2>
         </Col>
       </Row>
@@ -79,26 +79,26 @@ export const ReponsePossibleUpdate = (props: IReponsePossibleUpdateProps) => {
               {!isNew ? (
                 <AvGroup>
                   <Label for="reponse-possible-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
+                    ID
                   </Label>
                   <AvInput id="reponse-possible-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
                 <Label id="intituleLabel" for="reponse-possible-intitule">
-                  <Translate contentKey="pycataApp.reponsePossible.intitule">Intitule</Translate>
+                  Intitule
                 </Label>
                 <AvField id="reponse-possible-intitule" type="text" name="intitule" />
               </AvGroup>
               <AvGroup check>
                 <Label id="vraiLabel">
                   <AvInput id="reponse-possible-vrai" type="checkbox" className="form-check-input" name="vrai" />
-                  <Translate contentKey="pycataApp.reponsePossible.vrai">Vrai</Translate>
+                  Vrai
                 </Label>
               </AvGroup>
               <AvGroup>
                 <Label for="reponse-possible-question">
-                  <Translate contentKey="pycataApp.reponsePossible.question">Question</Translate>
+                  Question
                 </Label>
                 <AvInput id="reponse-possible-question" type="select" className="form-control" name="question.id">
                   <option value="" key="0" />
@@ -113,7 +113,7 @@ export const ReponsePossibleUpdate = (props: IReponsePossibleUpdateProps) => {
               </AvGroup>
               <AvGroup>
                 <Label for="reponse-possible-media">
-                  <Translate contentKey="pycataApp.reponsePossible.media">Media</Translate>
+                  Media
                 </Label>
                 <AvInput id="reponse-possible-media" type="select" className="form-control" name="media.id">
                   <option value="" key="0" />
@@ -130,14 +130,14 @@ export const ReponsePossibleUpdate = (props: IReponsePossibleUpdateProps) => {
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
+                  Retour
                 </span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
+                Sauvegarder
               </Button>
             </AvForm>
           )}

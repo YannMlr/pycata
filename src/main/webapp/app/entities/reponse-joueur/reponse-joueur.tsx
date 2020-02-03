@@ -21,11 +21,11 @@ export const ReponseJoueur = (props: IReponseJoueurProps) => {
   return (
     <div>
       <h2 id="reponse-joueur-heading">
-        <Translate contentKey="pycataApp.reponseJoueur.home.title">Reponse Joueurs</Translate>
+        Reponse Joueurs
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;
-          <Translate contentKey="pycataApp.reponseJoueur.home.createLabel">Create new Reponse Joueur</Translate>
+          Creer une nouvelle Reponse Joueur
         </Link>
       </h2>
       <div className="table-responsive">
@@ -34,22 +34,22 @@ export const ReponseJoueur = (props: IReponseJoueurProps) => {
             <thead>
               <tr>
                 <th>
-                  <Translate contentKey="global.field.id">ID</Translate>
+                  ID
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.reponseJoueur.dateEnvoi">Date Envoi</Translate>
+                  Date Envoi
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.reponseJoueur.dateReponse">Date Reponse</Translate>
+                  Date Reponse
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.reponseJoueur.score">Score</Translate>
+                  Score
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.reponseJoueur.joueur">Joueur</Translate>
+                  Joueur
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.reponseJoueur.reponsePossible">Reponse Possible</Translate>
+                  Reponse Possible
                 </th>
                 <th />
               </tr>
@@ -78,19 +78,19 @@ export const ReponseJoueur = (props: IReponseJoueurProps) => {
                       <Button tag={Link} to={`${match.url}/${reponseJoueur.id}`} color="info" size="sm">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.view">View</Translate>
+                          Detail
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${reponseJoueur.id}/edit`} color="primary" size="sm">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
+                          Editer
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${reponseJoueur.id}/delete`} color="danger" size="sm">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
+                          Supprimer
                         </span>
                       </Button>
                     </div>
@@ -101,7 +101,7 @@ export const ReponseJoueur = (props: IReponseJoueurProps) => {
           </Table>
         ) : (
           <div className="alert alert-warning">
-            <Translate contentKey="pycataApp.reponseJoueur.home.notFound">No Reponse Joueurs found</Translate>
+            Aucune Reponse Joueurs trouve
           </div>
         )}
       </div>

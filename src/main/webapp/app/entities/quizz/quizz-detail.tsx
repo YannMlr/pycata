@@ -22,37 +22,37 @@ export const QuizzDetail = (props: IQuizzDetailProps) => {
     <Row>
       <Col md="8">
         <h2>
-          <Translate contentKey="pycataApp.quizz.detail.title">Quizz</Translate> [<b>{quizzEntity.id}</b>]
+          Quizz [<b>{quizzEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
             <span id="sujet">
-              <Translate contentKey="pycataApp.quizz.sujet">Sujet</Translate>
+              Sujet
             </span>
           </dt>
           <dd>{quizzEntity.sujet}</dd>
           <dt>
             <span id="score">
-              <Translate contentKey="pycataApp.quizz.score">Score</Translate>
+              Score
             </span>
           </dt>
           <dd>{quizzEntity.score}</dd>
           <dt>
-            <Translate contentKey="pycataApp.quizz.evenement">Evenement</Translate>
+            Evenement
           </dt>
           <dd>{quizzEntity.evenement ? quizzEntity.evenement.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/quizz" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
+            Retour
           </span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/quizz/${quizzEntity.id}/edit`} replace color="primary">
           <FontAwesomeIcon icon="pencil-alt" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.edit">Edit</Translate>
+            Editer
           </span>
         </Button>
       </Col>

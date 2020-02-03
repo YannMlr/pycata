@@ -22,12 +22,12 @@ export const ThemeDetail = (props: IThemeDetailProps) => {
     <Row>
       <Col md="8">
         <h2>
-          <Translate contentKey="pycataApp.theme.detail.title">Theme</Translate> [<b>{themeEntity.id}</b>]
+          Theme [<b>{themeEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
             <span id="intitule">
-              <Translate contentKey="pycataApp.theme.intitule">Intitule</Translate>
+              Intitule
             </span>
           </dt>
           <dd>{themeEntity.intitule}</dd>
@@ -35,14 +35,14 @@ export const ThemeDetail = (props: IThemeDetailProps) => {
         <Button tag={Link} to="/theme" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
+            Retour
           </span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/theme/${themeEntity.id}/edit`} replace color="primary">
           <FontAwesomeIcon icon="pencil-alt" />{' '}
           <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.edit">Edit</Translate>
+            Editer
           </span>
         </Button>
       </Col>

@@ -21,11 +21,11 @@ export const Quizz = (props: IQuizzProps) => {
   return (
     <div>
       <h2 id="quizz-heading">
-        <Translate contentKey="pycataApp.quizz.home.title">Quizzes</Translate>
+        Quizzes
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;
-          <Translate contentKey="pycataApp.quizz.home.createLabel">Create new Quizz</Translate>
+          Creer un nouveau Quizz
         </Link>
       </h2>
       <div className="table-responsive">
@@ -34,16 +34,16 @@ export const Quizz = (props: IQuizzProps) => {
             <thead>
               <tr>
                 <th>
-                  <Translate contentKey="global.field.id">ID</Translate>
+                  ID
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.quizz.sujet">Sujet</Translate>
+                  Sujet
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.quizz.score">Score</Translate>
+                  Score
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.quizz.evenement">Evenement</Translate>
+                  Evenement
                 </th>
                 <th />
               </tr>
@@ -64,19 +64,19 @@ export const Quizz = (props: IQuizzProps) => {
                       <Button tag={Link} to={`${match.url}/${quizz.id}`} color="info" size="sm">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.view">View</Translate>
+                          Detail
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${quizz.id}/edit`} color="primary" size="sm">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
+                          Editer
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${quizz.id}/delete`} color="danger" size="sm">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
+                          Supprimer
                         </span>
                       </Button>
                     </div>
@@ -87,7 +87,7 @@ export const Quizz = (props: IQuizzProps) => {
           </Table>
         ) : (
           <div className="alert alert-warning">
-            <Translate contentKey="pycataApp.quizz.home.notFound">No Quizzes found</Translate>
+            Aucun Quizz trouve
           </div>
         )}
       </div>

@@ -34,23 +34,21 @@ export const QuizzDeleteDialog = (props: IQuizzDeleteDialogProps) => {
   return (
     <Modal isOpen toggle={handleClose}>
       <ModalHeader toggle={handleClose}>
-        <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
+        Confirmer la suppression
       </ModalHeader>
-      <ModalBody id="pycataApp.quizz.delete.question">
-        <Translate contentKey="pycataApp.quizz.delete.question" interpolate={{ id: quizzEntity.id }}>
-          Are you sure you want to delete this Quizz?
-        </Translate>
+      <ModalBody id="pycataApp.quizz.delete.question" interpolate={{ id: quizzEntity.id }}>
+          Etes vous sur de vouloir supprimer le Quizz?
       </ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
           &nbsp;
-          <Translate contentKey="entity.action.cancel">Cancel</Translate>
+          Annuler
         </Button>
         <Button id="jhi-confirm-delete-quizz" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
-          <Translate contentKey="entity.action.delete">Delete</Translate>
+          Supprimer
         </Button>
       </ModalFooter>
     </Modal>

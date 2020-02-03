@@ -34,7 +34,7 @@ export const LogsPage = (props: ILogsPageProps) => {
   return (
     <div>
       <h2 id="logs-page-heading">
-        <Translate contentKey="logs.title">Logs</Translate>
+        Logs
       </h2>
       <p>
         <Translate contentKey="logs.nbloggers" interpolate={{ total: loggers.length }}>
@@ -43,7 +43,7 @@ export const LogsPage = (props: ILogsPageProps) => {
       </p>
 
       <span>
-        <Translate contentKey="logs.filter">Filter</Translate>
+        Filtrer
       </span>
       <input type="text" value={filter} onChange={changeFilter} className="form-control" disabled={isFetching} />
 
@@ -52,12 +52,12 @@ export const LogsPage = (props: ILogsPageProps) => {
           <tr title="click to order">
             <th>
               <span>
-                <Translate contentKey="logs.table.name">Name</Translate>
+                Nom
               </span>
             </th>
             <th>
               <span>
-                <Translate contentKey="logs.table.level">Level</Translate>
+                Level
               </span>
             </th>
           </tr>

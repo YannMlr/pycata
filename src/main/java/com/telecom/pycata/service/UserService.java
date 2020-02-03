@@ -2,8 +2,10 @@ package com.telecom.pycata.service;
 
 import com.telecom.pycata.config.Constants;
 import com.telecom.pycata.domain.Authority;
+import com.telecom.pycata.domain.Joueur;
 import com.telecom.pycata.domain.User;
 import com.telecom.pycata.repository.AuthorityRepository;
+import com.telecom.pycata.repository.JoueurRepository;
 import com.telecom.pycata.repository.UserRepository;
 import com.telecom.pycata.security.SecurityUtils;
 import com.telecom.pycata.service.dto.UserDTO;
@@ -36,13 +38,15 @@ public class UserService {
     private final UserRepository userRepository;
 
     private final AuthorityRepository authorityRepository;
+    private final JoueurRepository joueurRepository;
 
     private final CacheManager cacheManager;
 
-    public UserService(UserRepository userRepository, AuthorityRepository authorityRepository, CacheManager cacheManager) {
+    public UserService(UserRepository userRepository, AuthorityRepository authorityRepository, CacheManager cacheManager, JoueurRepository joueurRepository) {
         this.userRepository = userRepository;
         this.authorityRepository = authorityRepository;
         this.cacheManager = cacheManager;
+        this.joueurRepository = joueurRepository;
     }
 
     /**
@@ -145,6 +149,7 @@ public class UserService {
     private User syncUserWithIdP(Map<String, Object> details, User user) {
         // save authorities in to sync user roles/groups between IdP and JHipster's local database
         Collection<String> dbAuthorities = getAuthorities();
+
         Collection<String> userAuthorities =
             user.getAuthorities().stream().map(Authority::getName).collect(Collectors.toList());
         for (String authority : userAuthorities) {
@@ -174,6 +179,9 @@ public class UserService {
                     user.getLangKey(), user.getImageUrl());
             }
         } else {
+            Joueur j = new Joueur();
+            j.setIdUser(user.getId());
+            joueurRepository.save(j);
             log.debug("Saving user '{}' in local database", user.getLogin());
             userRepository.save(user);
             this.clearUserCaches(user);

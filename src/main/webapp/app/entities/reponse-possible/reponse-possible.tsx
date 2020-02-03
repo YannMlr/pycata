@@ -25,7 +25,7 @@ export const ReponsePossible = (props: IReponsePossibleProps) => {
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;
-          <Translate contentKey="pycataApp.reponsePossible.home.createLabel">Create new Reponse Possible</Translate>
+          Creer une nouvelle Reponse Possible
         </Link>
       </h2>
       <div className="table-responsive">
@@ -34,19 +34,19 @@ export const ReponsePossible = (props: IReponsePossibleProps) => {
             <thead>
               <tr>
                 <th>
-                  <Translate contentKey="global.field.id">ID</Translate>
+                  ID
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.reponsePossible.intitule">Intitule</Translate>
+                  Intitule
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.reponsePossible.vrai">Vrai</Translate>
+                  Vrai
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.reponsePossible.question">Question</Translate>
+                  Question
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.reponsePossible.media">Media</Translate>
+                  Media
                 </th>
                 <th />
               </tr>
@@ -74,19 +74,19 @@ export const ReponsePossible = (props: IReponsePossibleProps) => {
                       <Button tag={Link} to={`${match.url}/${reponsePossible.id}`} color="info" size="sm">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.view">View</Translate>
+                          Detail
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${reponsePossible.id}/edit`} color="primary" size="sm">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
+                          Editer
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${reponsePossible.id}/delete`} color="danger" size="sm">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
+                          Supprimer
                         </span>
                       </Button>
                     </div>
@@ -97,7 +97,7 @@ export const ReponsePossible = (props: IReponsePossibleProps) => {
           </Table>
         ) : (
           <div className="alert alert-warning">
-            <Translate contentKey="pycataApp.reponsePossible.home.notFound">No Reponse Possibles found</Translate>
+            Aucune Reponse Possibles trouve
           </div>
         )}
       </div>

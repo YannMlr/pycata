@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Row, Table } from 'reactstrap';
-import { Translate, ICrudGetAllAction } from 'react-jhipster';
+import { Button, Table } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './evenement.reducer';
-import { IEvenement } from 'app/shared/model/evenement.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IEvenementProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
@@ -21,11 +18,11 @@ export const Evenement = (props: IEvenementProps) => {
   return (
     <div>
       <h2 id="evenement-heading">
-        <Translate contentKey="pycataApp.evenement.home.title">Evenements</Translate>
+        Evenements
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;
-          <Translate contentKey="pycataApp.evenement.home.createLabel">Create new Evenement</Translate>
+          Créer un nouvel evenement
         </Link>
       </h2>
       <div className="table-responsive">
@@ -34,10 +31,10 @@ export const Evenement = (props: IEvenementProps) => {
             <thead>
               <tr>
                 <th>
-                  <Translate contentKey="global.field.id">ID</Translate>
+                  Event ID
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.evenement.intitule">Intitule</Translate>
+                  Intitule
                 </th>
                 <th />
               </tr>
@@ -56,19 +53,19 @@ export const Evenement = (props: IEvenementProps) => {
                       <Button tag={Link} to={`${match.url}/${evenement.id}`} color="info" size="sm">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.view">View</Translate>
+                          Detail
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${evenement.id}/edit`} color="primary" size="sm">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
+                          Editer
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${evenement.id}/delete`} color="danger" size="sm">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
+                          Supprimer
                         </span>
                       </Button>
                     </div>
@@ -79,7 +76,7 @@ export const Evenement = (props: IEvenementProps) => {
           </Table>
         ) : (
           <div className="alert alert-warning">
-            <Translate contentKey="pycataApp.evenement.home.notFound">No Evenements found</Translate>
+            Aucun evenement trouvé
           </div>
         )}
       </div>

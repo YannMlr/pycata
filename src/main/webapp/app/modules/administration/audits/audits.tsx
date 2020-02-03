@@ -76,11 +76,11 @@ export const AuditsPage = (props: IAuditsPageProps) => {
     <div>
       <h2 id="audits-page-heading">Audits</h2>
       <span>
-        <Translate contentKey="audits.filter.from">from</Translate>
+        Depuis
       </span>
       <Input type="date" value={fromDate} onChange={onChangeFromDate} name="fromDate" id="fromDate" />
       <span>
-        <Translate contentKey="audits.filter.to">to</Translate>
+        Jusqu&#39;au
       </span>
       <Input type="date" value={toDate} onChange={onChangeToDate} name="toDate" id="toDate" />
       {audits && audits.length > 0 ? (
@@ -88,19 +88,19 @@ export const AuditsPage = (props: IAuditsPageProps) => {
           <thead>
             <tr>
               <th onClick={sort('auditEventDate')}>
-                <Translate contentKey="audits.table.header.date">Date</Translate>
+                Date
                 <FontAwesomeIcon icon="sort" />
               </th>
               <th onClick={sort('principal')}>
-                <Translate contentKey="audits.table.header.principal">User</Translate>
+                User
                 <FontAwesomeIcon icon="sort" />
               </th>
               <th onClick={sort('auditEventType')}>
-                <Translate contentKey="audits.table.header.status">State</Translate>
+                State
                 <FontAwesomeIcon icon="sort" />
               </th>
               <th>
-                <Translate contentKey="audits.table.header.data">Extra data</Translate>
+                Extra data
               </th>
             </tr>
           </thead>
@@ -120,7 +120,7 @@ export const AuditsPage = (props: IAuditsPageProps) => {
         </Table>
       ) : (
         <div className="alert alert-warning">
-          <Translate contentKey="audits.notFound">No audit found</Translate>
+          Aucun audit trouve
         </div>
       )}
       <div className={audits && audits.length > 0 ? '' : 'd-none'}>

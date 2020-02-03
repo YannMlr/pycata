@@ -66,7 +66,7 @@ export const ReponseJoueurUpdate = (props: IReponseJoueurUpdateProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="pycataApp.reponseJoueur.home.createOrEditLabel">
-            <Translate contentKey="pycataApp.reponseJoueur.home.createOrEditLabel">Create or edit a ReponseJoueur</Translate>
+            Creer ou editer une Reponse Joueur
           </h2>
         </Col>
       </Row>
@@ -79,32 +79,32 @@ export const ReponseJoueurUpdate = (props: IReponseJoueurUpdateProps) => {
               {!isNew ? (
                 <AvGroup>
                   <Label for="reponse-joueur-id">
-                    <Translate contentKey="global.field.id">ID</Translate>
+                    ID
                   </Label>
                   <AvInput id="reponse-joueur-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
                 <Label id="dateEnvoiLabel" for="reponse-joueur-dateEnvoi">
-                  <Translate contentKey="pycataApp.reponseJoueur.dateEnvoi">Date Envoi</Translate>
+                  Date Envoi
                 </Label>
                 <AvField id="reponse-joueur-dateEnvoi" type="string" className="form-control" name="dateEnvoi" />
               </AvGroup>
               <AvGroup>
                 <Label id="dateReponseLabel" for="reponse-joueur-dateReponse">
-                  <Translate contentKey="pycataApp.reponseJoueur.dateReponse">Date Reponse</Translate>
+                  Date Reponse
                 </Label>
                 <AvField id="reponse-joueur-dateReponse" type="string" className="form-control" name="dateReponse" />
               </AvGroup>
               <AvGroup>
                 <Label id="scoreLabel" for="reponse-joueur-score">
-                  <Translate contentKey="pycataApp.reponseJoueur.score">Score</Translate>
+                  Score
                 </Label>
                 <AvField id="reponse-joueur-score" type="string" className="form-control" name="score" />
               </AvGroup>
               <AvGroup>
                 <Label for="reponse-joueur-joueur">
-                  <Translate contentKey="pycataApp.reponseJoueur.joueur">Joueur</Translate>
+                  Joueur
                 </Label>
                 <AvInput id="reponse-joueur-joueur" type="select" className="form-control" name="joueur.id">
                   <option value="" key="0" />
@@ -119,7 +119,7 @@ export const ReponseJoueurUpdate = (props: IReponseJoueurUpdateProps) => {
               </AvGroup>
               <AvGroup>
                 <Label for="reponse-joueur-reponsePossible">
-                  <Translate contentKey="pycataApp.reponseJoueur.reponsePossible">Reponse Possible</Translate>
+                  Reponse Possible
                 </Label>
                 <AvInput id="reponse-joueur-reponsePossible" type="select" className="form-control" name="reponsePossible.id">
                   <option value="" key="0" />
@@ -136,14 +136,14 @@ export const ReponseJoueurUpdate = (props: IReponseJoueurUpdateProps) => {
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
+                  Retour
                 </span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
+                Sauvegarder
               </Button>
             </AvForm>
           )}

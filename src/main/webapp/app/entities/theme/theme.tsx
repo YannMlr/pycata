@@ -21,11 +21,11 @@ export const Theme = (props: IThemeProps) => {
   return (
     <div>
       <h2 id="theme-heading">
-        <Translate contentKey="pycataApp.theme.home.title">Themes</Translate>
+        Themes
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;
-          <Translate contentKey="pycataApp.theme.home.createLabel">Create new Theme</Translate>
+          Creer un nouveau Theme
         </Link>
       </h2>
       <div className="table-responsive">
@@ -34,10 +34,10 @@ export const Theme = (props: IThemeProps) => {
             <thead>
               <tr>
                 <th>
-                  <Translate contentKey="global.field.id">ID</Translate>
+                  ID
                 </th>
                 <th>
-                  <Translate contentKey="pycataApp.theme.intitule">Intitule</Translate>
+                  Intitule
                 </th>
                 <th />
               </tr>
@@ -56,19 +56,19 @@ export const Theme = (props: IThemeProps) => {
                       <Button tag={Link} to={`${match.url}/${theme.id}`} color="info" size="sm">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.view">View</Translate>
+                          Detail
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${theme.id}/edit`} color="primary" size="sm">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
+                          Editer
                         </span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${theme.id}/delete`} color="danger" size="sm">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
+                          Supprimer
                         </span>
                       </Button>
                     </div>
@@ -79,7 +79,7 @@ export const Theme = (props: IThemeProps) => {
           </Table>
         ) : (
           <div className="alert alert-warning">
-            <Translate contentKey="pycataApp.theme.home.notFound">No Themes found</Translate>
+            Aucun Theme trouve
           </div>
         )}
       </div>

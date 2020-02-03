@@ -42,10 +42,10 @@ export const ConfigurationPage = (props: IConfigurationPageProps) => {
   return (
     <div>
       <h2 id="configuration-page-heading">
-        <Translate contentKey="configuration.title">Configuration</Translate>
+        Configuration
       </h2>
       <span>
-        <Translate contentKey="configuration.filter">Filter</Translate>
+        Filtrer
       </span>{' '}
       <Input type="search" value={filter} onChange={changeFilter} name="search" id="search" />
       <label>Spring configuration</label>
@@ -53,10 +53,10 @@ export const ConfigurationPage = (props: IConfigurationPageProps) => {
         <thead>
           <tr>
             <th onClick={changeReversePrefix}>
-              <Translate contentKey="configuration.table.prefix">Prefix</Translate>
+              Prefixe
             </th>
             <th onClick={changeReverseProperties}>
-              <Translate contentKey="configuration.table.properties">Properties</Translate>
+              Proprietes
             </th>
           </tr>
         </thead>
