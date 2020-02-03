@@ -34,11 +34,12 @@ public class Quizz implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JsonIgnoreProperties("quizz")
     private Set<Question> questions = new HashSet<>();
-
+    
     @ManyToOne
     @JsonIgnoreProperties("quizzes")
     private Evenement evenement;
-
+    
+    
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;

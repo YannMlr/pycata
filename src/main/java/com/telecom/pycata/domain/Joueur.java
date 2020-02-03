@@ -28,6 +28,7 @@ public class Joueur implements Serializable {
     @OneToMany(mappedBy = "joueur", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<ReponseJoueur> reponseJoueurs = new HashSet<>();
+    
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
