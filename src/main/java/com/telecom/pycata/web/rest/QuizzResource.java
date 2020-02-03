@@ -1,12 +1,36 @@
 package com.telecom.pycata.web.rest;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.telecom.pycata.domain.Joueur;
 import com.telecom.pycata.domain.Question;
 import com.telecom.pycata.domain.Quizz;
 import com.telecom.pycata.domain.ReponseJoueur;
-import com.telecom.pycata.domain.ReponsePossible;
+import com.telecom.pycata.domain.User;
 import com.telecom.pycata.repository.JoueurRepository;
 import com.telecom.pycata.repository.QuizzRepository;
 import com.telecom.pycata.repository.ReponseJoueurRepository;
+import com.telecom.pycata.service.UserService;
 import com.telecom.pycata.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -39,6 +63,9 @@ public class QuizzResource {
 
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
+
+    @Autowired
+    private UserService userService;
 
     private final QuizzRepository quizzRepository;
     private final JoueurRepository joueurRepository;
@@ -73,7 +100,7 @@ public class QuizzResource {
      * {@code POST  /quizzes} : Links players to quizzes through ReponseJoueur class.
      *
      * @param quizz id and joueur id.
-     * 
+     *
      */
     @PostMapping("/quizz-add-joueur")
     public void addJoueurToQuizz(@RequestParam("id") Long id, @RequestParam("id_joueur") Long id_joueur) {
@@ -86,7 +113,7 @@ public class QuizzResource {
         	reponseJoueurRepository.save(reponseJoueur);
         }
     }
-    
+
     /**
      * {@code PUT  /quizzes} : Updates an existing quizz.
      *
@@ -118,6 +145,16 @@ public class QuizzResource {
     public List<Quizz> getAllQuizzes() {
         log.debug("REST request to get all Quizzes");
         return quizzRepository.findAll();
+    }
+
+
+    @GetMapping("/quizzesJoueur")
+    public ResponseEntity<Joueur> getJoueur() {
+    	User user = userService.getUserWithAuthorities().get();
+
+    	return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, user.getId()))
+                .body(quizzRepository.getJoueurByUser(user.getId()));
     }
 
     /**
