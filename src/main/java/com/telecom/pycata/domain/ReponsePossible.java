@@ -1,13 +1,23 @@
 package com.telecom.pycata.domain;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.cloud.cloudfoundry.com.fasterxml.jackson.annotation.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A ReponsePossible.
@@ -29,12 +39,13 @@ public class ReponsePossible implements Serializable {
     @Column(name = "vrai")
     private Boolean vrai;
 
-    @OneToMany(mappedBy = "reponsePossible")
+    @OneToMany(mappedBy = "reponsePossible", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<ReponseJoueur> reponseJoueurs = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties("reponsePossibles")
+    @JsonIgnore
     private Question question;
 
     @ManyToOne

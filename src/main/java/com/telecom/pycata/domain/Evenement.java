@@ -25,7 +25,7 @@ public class Evenement implements Serializable {
     @Column(name = "intitule")
     private String intitule;
 
-    @OneToMany(mappedBy = "evenement")
+    @OneToMany(mappedBy = "evenement", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Quizz> quizzes = new HashSet<>();
 

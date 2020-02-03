@@ -25,7 +25,7 @@ public class Joueur implements Serializable {
     @Column(name = "id_user")
     private Long idUser;
 
-    @OneToMany(mappedBy = "joueur")
+    @OneToMany(mappedBy = "joueur", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<ReponseJoueur> reponseJoueurs = new HashSet<>();
 
