@@ -4,12 +4,14 @@ import React, {useEffect} from 'react';
 import {Link, RouteComponentProps} from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { connect } from 'react-redux';
-import { Row, Col, Alert } from 'reactstrap';
+import { Row, Col, Alert, Table, Button } from 'reactstrap';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntity } from './listQuizz.reducer';
+import { getEntities } from './listQuizz.reducer';
 
 import { getLoginUrl } from 'app/shared/util/url-utils';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import quizz from "app/entities/quizz/quizz";
 //import {getEntities} from "app/entities/quizz/quizz.reducer";
 
 export interface IListQuizzProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
@@ -18,23 +20,69 @@ export interface IListQuizzProps extends StateProps, DispatchProps, RouteCompone
 export const ListQuizz = (props: IListQuizzProps) => {
 
   useEffect(() => {
-    props.getEntity(props.match.params.id);
+    props.getEntities();
   }, []);
 
-  const { event} = props;
-
+  const { quizzPossible } = props;
 
   return (
     <Row>
       <Col md="9">
         <h2>
-          Veuillez choisir votre quizz !
+          Veuillez choisir votre quizz :-p
         </h2>
-        <p className="lead">
-        </p>
 
-      </Col>
-      <Col md="3" className="pad">
+        {<div className="table-responsive">
+          {quizzPossible && quizzPossible.length > 0 ? (
+            <Table responsive>
+              <thead>
+              <tr>
+                <th>
+                  ID
+                </th>
+                <th>
+                  Intitule
+                </th>
+                <th>
+                  Score
+                </th>
+                <th>
+                  Evenement
+                </th>
+              </tr>
+              </thead>
+
+              <tbody>
+              {quizzPossible.map((quizzes) => (
+                <tr>
+                  <td>
+                    <Button tag={Link} to={`/choix/${quizzes.id}`} color="link" size="sm">
+                      {quizzes.id}
+                    </Button>
+                  </td>
+                  <td>{quizzes.sujet}</td>
+                  <td>{quizzes.score}</td>
+                  {quizzes.evenement ? (
+                    <td>{quizzes.evenement.intitule}</td>
+                  ) : (
+                    <td>
+                      Pas d'évènement associé
+                    </td>
+                  )
+                  }
+                </tr>
+              ))}
+              </tbody>
+
+            </Table>
+          ) : (
+            <div className="alert alert-warning">
+              Aucun Quizz trouve
+            </div>)}
+
+
+        </div>
+        }
 
       </Col>
     </Row>
@@ -45,10 +93,10 @@ export const ListQuizz = (props: IListQuizzProps) => {
 
 
 const mapStateToProps = ({ listQuizz }: IRootState) => ({
-  event : listQuizz.entity
+  quizzPossible : listQuizz.entities
 });
 
-const mapDispatchToProps = { getEntity };
+const mapDispatchToProps = { getEntities };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;

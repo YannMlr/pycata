@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { connect } from 'react-redux';
-import { Row, Col, Alert } from 'reactstrap';
+import { Row, Col, Alert, Button } from 'reactstrap';
 
 import { IRootState } from 'app/shared/reducers';
 import { getLoginUrl } from 'app/shared/util/url-utils';
@@ -21,7 +21,7 @@ export const Home = (props: IHomeProp) => {
           Bienvenu sur Pycata !
         </h2>
         <p className="lead">
-        
+
         </p>
         {account && account.login ? (
           <div>
@@ -30,6 +30,9 @@ export const Home = (props: IHomeProp) => {
                 You are logged in as user {account.login}.
               </Translate>
             </Alert>
+            <Button tag={Link} to={`/listQuizz`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+              Accéder à la liste des quizz
+            </Button>
           </div>
         ) : (
           <div>
@@ -42,12 +45,12 @@ export const Home = (props: IHomeProp) => {
             </Alert>
           </div>
         )}
-      
 
-        
+
+
       </Col>
       <Col md="3" className="pad">
-        
+
       </Col>
     </Row>
   );

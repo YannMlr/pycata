@@ -43,8 +43,9 @@ import niveau, {
 import joueur, {
   JoueurState
 } from 'app/entities/joueur/joueur.reducer';
-import choix, { ChoixState } from 'app/modules/choix.reducer';
+import choix, { ChoixState } from 'app/modules/Choix/choix.reducer';
 import listQuizz, { ListQuizzState } from 'app/modules/ListQuizz/listQuizz.reducer';
+import questionActuelle, { QuestionActuelleState } from 'app/modules/QuestionActuelle/questionActuelle.reducer';
 
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
@@ -65,6 +66,7 @@ export interface IRootState {
   readonly joueur: JoueurState;
   readonly choix: ChoixState;
   readonly listQuizz: ListQuizzState;
+  readonly questionActuelle: QuestionActuelleState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -86,6 +88,7 @@ const rootReducer = combineReducers<IRootState>({
   joueur,
   choix,
   listQuizz,
+  questionActuelle,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar
 });
