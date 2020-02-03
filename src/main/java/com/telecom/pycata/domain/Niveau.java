@@ -25,7 +25,7 @@ public class Niveau implements Serializable {
     @Column(name = "intitule")
     private String intitule;
 
-    @OneToMany(mappedBy = "niveau")
+    @OneToMany(mappedBy = "niveau", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Question> questions = new HashSet<>();
 
