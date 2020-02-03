@@ -3,9 +3,10 @@ import promiseMiddleware from 'redux-promise-middleware';
 import axios from 'axios';
 import thunk from 'redux-thunk';
 import sinon from 'sinon';
+/*
 export SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI="https://dev-491348.okta.com/oauth2/default"
 export SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID="0oan1gi9gaPygwl2h4x5"
-export SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET="5vgl5PJLI_sK23I3On5zSgi-1bpwa03bmlN1tYIG"
+export SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET="5vgl5PJLI_sK23I3On5zSgi-1bpwa03bmlN1tYIG"*/
 
 import { REQUEST, FAILURE, SUCCESS } from 'app/shared/reducers/action-type.util';
 import administration, {

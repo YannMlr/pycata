@@ -34,11 +34,11 @@ export const Home = (props: IHomeProp) => {
         ) : (
           <div>
             <Alert color="warning">
-              Si vous voulez jouer avec nous veuillez vous 
+              Si vous voulez jouer avec nous veuillez vous
+              &nbsp;
               <a href={getLoginUrl()} className="alert-link">
-                  connecter
+                   connecter
               </a>
-
             </Alert>
           </div>
         )}

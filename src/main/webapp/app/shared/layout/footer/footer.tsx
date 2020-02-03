@@ -9,7 +9,7 @@ const Footer = props => (
     <Row>
       <Col md="12">
         <p>
-          Copyright PYCATA
+          Copyright PYCATA <br/>
           Application développée par A. Pinier Rafer, Y. Moulaire, T. Dupuis, P. Desclaux, A. Jean et C. Joulin
         </p>
       </Col>

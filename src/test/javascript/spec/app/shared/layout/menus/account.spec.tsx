@@ -4,9 +4,10 @@ import { shallow } from 'enzyme';
 import { getLoginUrl } from 'app/shared/util/url-utils';
 import { NavDropdown } from 'app/shared/layout/menus/menu-components';
 import { AccountMenu } from 'app/shared/layout/menus';
+/*
 export SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI="https://dev-491348.okta.com/oauth2/default"
 export SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID="0oan1gi9gaPygwl2h4x5"
-export SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET="5vgl5PJLI_sK23I3On5zSgi-1bpwa03bmlN1tYIG"
+export SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET="5vgl5PJLI_sK23I3On5zSgi-1bpwa03bmlN1tYIG"*/
 
 describe('AccountMenu', () => {
   let mountedWrapper;

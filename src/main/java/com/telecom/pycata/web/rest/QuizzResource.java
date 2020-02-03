@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional; 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -98,7 +98,7 @@ public class QuizzResource {
      * @param id the id of the quizz to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the quizz, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/quizzes/{id}")
+    @GetMapping("/choix/{id}")
     public ResponseEntity<Quizz> getQuizz(@PathVariable Long id) {
         log.debug("REST request to get Quizz : {}", id);
         Optional<Quizz> quizz = quizzRepository.findById(id);

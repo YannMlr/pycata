@@ -1,9 +1,12 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
 import Logout from 'app/modules/login/logout';
 import Home from 'app/modules/home/home';
+import Choix from 'app/modules/choix';
+import ListQuizz from 'app/modules/ListQuizz/listQuizz'
+
 import Entities from 'app/entities';
 import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
@@ -18,6 +21,8 @@ const Admin = Loadable({
 const Routes = () => (
   <div className="view-routes">
     <Switch>
+      <PrivateRoute path={'/listQuizz/:id'} component={ListQuizz} hasAnyAuthorities={[AUTHORITIES.USER]}/>
+      <PrivateRoute path={'/choix/:id'} component={Choix} hasAnyAuthorities={[AUTHORITIES.USER]}/>
       <ErrorBoundaryRoute path="/logout" component={Logout} />
       <PrivateRoute path="/admin" component={Admin} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
       <ErrorBoundaryRoute path="/" exact component={Home} />
