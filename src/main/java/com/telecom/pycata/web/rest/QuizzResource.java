@@ -153,8 +153,8 @@ public class QuizzResource {
     	User user = userService.getUserWithAuthorities().get();
 
     	return ResponseEntity.ok()
-                .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, user.getId()))
-                .body(quizzRepository.getJoueurByUser(user.getId()));
+                .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, userService.getUserWithAuthorities().get().getId()))
+                .body(joueurRepository.getJoueurByIdUser(userService.getUserWithAuthorities().get().getId()));
     }
 
     /**

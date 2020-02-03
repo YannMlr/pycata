@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface QuizzRepository extends JpaRepository<Quizz, Long> {
-	
-	public Joueur getJoueurByUser(String id);
+
+	//public Joueur getJoueurByIdUser(String id);
 }
