@@ -1,7 +1,12 @@
 package com.telecom.pycata.web.rest;
 
+import com.telecom.pycata.domain.Question;
 import com.telecom.pycata.domain.Quizz;
+import com.telecom.pycata.domain.ReponseJoueur;
+import com.telecom.pycata.domain.ReponsePossible;
+import com.telecom.pycata.repository.JoueurRepository;
 import com.telecom.pycata.repository.QuizzRepository;
+import com.telecom.pycata.repository.ReponseJoueurRepository;
 import com.telecom.pycata.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -18,6 +23,7 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * REST controller for managing {@link com.telecom.pycata.domain.Quizz}.
@@ -35,9 +41,13 @@ public class QuizzResource {
     private String applicationName;
 
     private final QuizzRepository quizzRepository;
+    private final JoueurRepository joueurRepository;
+    private final ReponseJoueurRepository reponseJoueurRepository;
 
-    public QuizzResource(QuizzRepository quizzRepository) {
+    public QuizzResource(QuizzRepository quizzRepository, JoueurRepository joueurRepository, ReponseJoueurRepository reponseJoueurRepository) {
         this.quizzRepository = quizzRepository;
+        this.joueurRepository = joueurRepository;
+        this.reponseJoueurRepository = reponseJoueurRepository;
     }
 
     /**
@@ -59,6 +69,24 @@ public class QuizzResource {
             .body(result);
     }
 
+    /**
+     * {@code POST  /quizzes} : Links players to quizzes through ReponseJoueur class.
+     *
+     * @param quizz id and joueur id.
+     * 
+     */
+    @PostMapping("/quizz-add-joueur")
+    public void addJoueurToQuizz(@RequestParam("id") Long id, @RequestParam("id_joueur") Long id_joueur) {
+        Quizz quizz = quizzRepository.findById(id).get();
+        Set<Question> questions = quizz.getQuestions();
+        for(Question question : questions) {
+        	ReponseJoueur reponseJoueur = new ReponseJoueur();
+        	reponseJoueur.setJoueur(joueurRepository.findById(id_joueur).get());
+        	reponseJoueur.setReponsePossible(question.getReponsePossibles().iterator().next());
+        	reponseJoueurRepository.save(reponseJoueur);
+        }
+    }
+    
     /**
      * {@code PUT  /quizzes} : Updates an existing quizz.
      *
