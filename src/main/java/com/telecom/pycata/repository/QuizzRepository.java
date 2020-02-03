@@ -1,5 +1,6 @@
 package com.telecom.pycata.repository;
 
+import com.telecom.pycata.domain.Joueur;
 import com.telecom.pycata.domain.Quizz;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
@@ -13,4 +14,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface QuizzRepository extends JpaRepository<Quizz, Long> {
 	
+	public Joueur getJoueurByUser(String id);
 }
