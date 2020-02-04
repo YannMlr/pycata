@@ -2,6 +2,7 @@ package com.telecom.pycata.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.cloud.cloudfoundry.com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -29,14 +30,16 @@ public class Quizz implements Serializable {
     @Column(name = "score")
     private Integer score;
 
-    @OneToMany(mappedBy = "quizz")
+    @OneToMany(mappedBy = "quizz", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JsonIgnoreProperties("quizz")
     private Set<Question> questions = new HashSet<>();
-
+    
     @ManyToOne
     @JsonIgnoreProperties("quizzes")
     private Evenement evenement;
-
+    
+    
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
