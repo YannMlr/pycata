@@ -41,6 +41,7 @@ public class ReponsePossible implements Serializable {
 
     @OneToMany(mappedBy = "reponsePossible", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JsonIgnoreProperties("reponsePossible")
     private Set<ReponseJoueur> reponseJoueurs = new HashSet<>();
 
     @ManyToOne

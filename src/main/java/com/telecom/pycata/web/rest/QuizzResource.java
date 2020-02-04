@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import com.telecom.pycata.domain.ReponseJoueur;
+import com.telecom.pycata.domain.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +24,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.telecom.pycata.domain.Joueur;
-import com.telecom.pycata.domain.Question;
-import com.telecom.pycata.domain.Quizz;
 import com.telecom.pycata.repository.JoueurRepository;
 import com.telecom.pycata.repository.QuizzRepository;
 import com.telecom.pycata.repository.ReponseJoueurRepository;
@@ -102,16 +99,21 @@ public class QuizzResource {
      * @param  id and joueur id.
      *
      */
-    @PostMapping("/quizz-add-joueur")
-    public void addJoueurToQuizz(@RequestParam("id") Long id, @RequestParam("id_joueur") Long id_joueur) {
+    @GetMapping("/quizz-add-joueur/{id}")
+    public void addJoueurToQuizz(@PathVariable("id") Long id) {
         Quizz quizz = quizzRepository.findById(id).get();
+        Joueur joueur = joueurRepository.getJoueurByIdUser(this.userService.getUserWithAuthorities().get().getId());
         Set<Question> questions = quizz.getQuestions();
         for(Question question : questions) {
-        	ReponseJoueur reponseJoueur = new ReponseJoueur();
-        	reponseJoueur.setJoueur(joueurRepository.findById(id_joueur).get());
-        	reponseJoueur.setReponsePossible(question.getReponsePossibles().iterator().next());
-        	reponseJoueurRepository.save(reponseJoueur);
+        	for(ReponsePossible reponsePossible : question.getReponsePossibles()){
+                ReponseJoueur reponseJoueur = new ReponseJoueur();
+                reponseJoueur.setJoueur(joueur);
+                reponseJoueur.setReponsePossible(reponsePossible);
+                reponseJoueurRepository.save(reponseJoueur);
+            }
         }
+        reponseJoueurRepository.flush();
+
     }
 
     /**
@@ -200,6 +202,39 @@ public class QuizzResource {
         log.debug("REST request to get Quizz : {}", id);
         Optional<Quizz> quizz = quizzRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(quizz);
+    }
+
+
+
+    /**
+     * {@code GET  /quizzes/:id} : get the "id" quizz.
+     *
+     * @param id the id of the quizz to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the quizz, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/questionActuelle/{id}")
+    public ResponseEntity<Question> getQuestion(@PathVariable Long id) {
+        log.debug("REST request to get Quizz : {}", id);
+        Optional<Quizz> quizz = quizzRepository.findById(id);
+
+        Joueur joueur = joueurRepository.getJoueurByIdUser(this.userService.getUserWithAuthorities().get().getId());
+
+        Set<ReponseJoueur> reponseJoueurs = joueur.getReponseJoueurs();
+        Optional<Question> question = null;
+        Set<Question> setQuestions = quizz.get().getQuestions();
+        for(Question q : setQuestions)
+        {
+            for(ReponsePossible reponsePossible : q.getReponsePossibles()){
+                for(ReponseJoueur reponseJoueur : reponseJoueurs) {
+                    if(reponseJoueur.getReponsePossible().getId() == reponsePossible.getId() && reponseJoueur.getDateReponse() == null){
+                         question = Optional.of(q);
+                    }
+
+                }
+            }
+        }
+
+        return ResponseUtil.wrapOrNotFound(question);
     }
 
 
