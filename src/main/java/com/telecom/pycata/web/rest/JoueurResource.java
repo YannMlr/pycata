@@ -1,23 +1,37 @@
 package com.telecom.pycata.web.rest;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.telecom.pycata.domain.Joueur;
+import com.telecom.pycata.domain.Quizz;
+import com.telecom.pycata.domain.ReponseJoueur;
 import com.telecom.pycata.repository.JoueurRepository;
+import com.telecom.pycata.repository.ReponseJoueurRepository;
+import com.telecom.pycata.service.UserService;
 import com.telecom.pycata.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional; 
-import org.springframework.web.bind.annotation.*;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import java.util.List;
-import java.util.Optional;
 
 /**
  * REST controller for managing {@link com.telecom.pycata.domain.Joueur}.
@@ -34,6 +48,9 @@ public class JoueurResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
+    @Autowired
+    private UserService userService;
+    
     private final JoueurRepository joueurRepository;
 
     public JoueurResource(JoueurRepository joueurRepository) {
@@ -103,6 +120,24 @@ public class JoueurResource {
         log.debug("REST request to get Joueur : {}", id);
         Optional<Joueur> joueur = joueurRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(joueur);
+    }
+    
+    /**
+     * {@code GET  /joueurs/:id} : get the quizzes of "id" joueur.
+     *
+     * @param id the id of the joueur.
+     * @return the list of quizzes of the joueur.
+     */
+    @GetMapping("/joueurs-quizzes/{id}")
+    public Set<Quizz> getJoueurQuizzes(@PathVariable Long id) {
+    	Set<Quizz> quizzes = new HashSet<>();
+        Optional<Joueur> joueur = joueurRepository.findById(id);
+        Set<ReponseJoueur> reponseJoueurs = joueur.get().getReponseJoueurs();
+        for(ReponseJoueur reponseJoueur : reponseJoueurs) {
+        	quizzes.add(reponseJoueur.getReponsePossible().getQuestion().getQuizz());
+        }
+        
+        return quizzes;
     }
 
     /**

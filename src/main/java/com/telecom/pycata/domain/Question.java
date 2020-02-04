@@ -2,6 +2,7 @@ package com.telecom.pycata.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.cloud.cloudfoundry.com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -26,8 +27,9 @@ public class Question implements Serializable {
     @Column(name = "intitule")
     private String intitule;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JsonIgnoreProperties("question")
     private Set<ReponsePossible> reponsePossibles = new HashSet<>();
 
     @ManyToOne

@@ -25,7 +25,7 @@ public class Theme implements Serializable {
     @Column(name = "intitule")
     private String intitule;
 
-    @OneToMany(mappedBy = "theme")
+    @OneToMany(mappedBy = "theme", fetch=FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Question> questions = new HashSet<>();
 
