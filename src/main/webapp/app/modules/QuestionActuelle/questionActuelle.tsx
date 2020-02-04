@@ -21,12 +21,12 @@ export const QuestionActuelle = (props: IQuestionActuelleProps) => {
 
   const { quest } = props;
 
-
+/*
 const handle = (i) =>{
       quest.reponsePossibles[i].intitule = "uyf";
 
 
-  }
+  }*/
 
   return (
     <Row>
@@ -41,7 +41,7 @@ const handle = (i) =>{
 
 
             <li key={reponse.id}>
-                  <Button className="btn btn-primary my-3 jh-create-entity" id="jh-create-entity" onClick={this.handle(i)}  >
+                  <Button className="btn btn-primary my-2 jh-create-entity" id="jh-create-entity" >
                     {reponse.intitule}
                   </Button>
             </li>
@@ -58,7 +58,9 @@ const handle = (i) =>{
 
       <Col md="3" className="pad">
 
-
+        <Button tag={Link} to={`/QuestionActuelle/${props.match.params.id}`} className="btn btn-warning mt-5" >
+          Question suivante
+        </Button>
 
       </Col>
     </Row>
