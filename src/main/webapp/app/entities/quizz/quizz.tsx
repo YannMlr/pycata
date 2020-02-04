@@ -58,7 +58,7 @@ export const Quizz = (props: IQuizzProps) => {
                   </td>
                   <td>{quizz.sujet}</td>
                   <td>{quizz.score}</td>
-                  <td>{quizz.evenement ? <Link to={`evenement/${quizz.evenement.id}`}>{quizz.evenement.id}</Link> : ''}</td>
+                  <td>{quizz.evenement ? <Link to={`evenement/${quizz.evenement.id}`}>{quizz.evenement.intitule}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${quizz.id}`} color="info" size="sm">

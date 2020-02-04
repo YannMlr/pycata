@@ -96,7 +96,9 @@ export default (state: ListQuizzState = initialState, action): ListQuizzState =>
   }
 };
 
-const apiUrl = 'api/evenement';
+// changer l'api
+// api que grace a l'id du user envoie la liste des quizzes auquel il peut accéder
+const apiUrl = 'api/quizzes';
 
 // Actions
 

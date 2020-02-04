@@ -101,7 +101,7 @@ export const QuizzUpdate = (props: IQuizzUpdateProps) => {
                   {evenements
                     ? evenements.map(otherEntity => (
                         <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.id}
+                          {otherEntity.intitule}
                         </option>
                       ))
                     : null}

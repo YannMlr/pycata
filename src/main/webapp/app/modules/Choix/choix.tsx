@@ -1,10 +1,10 @@
-import './home/home.scss';
+import '../home/home.scss';
 
 import React, {useEffect} from 'react';
 import {Link, RouteComponentProps} from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { connect } from 'react-redux';
-import { Row, Col, Alert } from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './choix.reducer';
@@ -17,24 +17,23 @@ export interface IChoixProps extends StateProps, DispatchProps, RouteComponentPr
 
 export const Choix = (props: IChoixProps) => {
 
-
-
   useEffect(() => {
     props.getEntity(props.match.params.id);
   }, []);
 
   const { quizzEntity} = props;
 
+
   return (
     <Row>
       <Col md="9">
         <h2>
-          Veuillez choisir votre quizz !
+          {quizzEntity.questions}
         </h2>
-        <p className="lead">
-          {quizzEntity.auth}
-        </p>
 
+        <Button tag={Link} to={`/QuestionActuelle/`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+          Commencer le quizz
+        </Button>
       </Col>
       <Col md="3" className="pad">
 
