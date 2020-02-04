@@ -9,6 +9,7 @@ import java.util.Set;
 
 import com.telecom.pycata.domain.*;
 import com.telecom.pycata.domain.*;
+import com.telecom.pycata.repository.ReponsePossibleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,9 @@ public class QuizzResource {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ReponsePossibleRepository reponsePossibleRepository ;
 
     private final QuizzRepository quizzRepository;
     private final JoueurRepository joueurRepository;
@@ -207,11 +211,23 @@ public class QuizzResource {
     @GetMapping("/questionActuelle/{id}")
     public ResponseEntity<Question> getQuestion(@PathVariable Long id) {
         log.debug("REST request to get Quizz : {}", id);
+
         Optional<Quizz> quizz = quizzRepository.findById(id);
 
         Joueur joueur = joueurRepository.getJoueurByIdUser(this.userService.getUserWithAuthorities().get().getId());
 
         Set<ReponseJoueur> reponseJoueurs = joueur.getReponseJoueurs();
+/*
+        if(idQ != null) {
+            for(ReponseJoueur rj : reponseJoueurs){
+                if(rj.getReponsePossible().getId() == idQ && rj.getJoueur().getId() == joueur.getId()){
+                    rj.setDateReponse(System.currentTimeMillis());
+                    reponseJoueurRepository.save(rj);
+                    break;
+                }
+            }
+        }
+*/
         Optional<Question> question = null;
         Set<Question> setQuestions = quizz.get().getQuestions();
         for(Question q : setQuestions)

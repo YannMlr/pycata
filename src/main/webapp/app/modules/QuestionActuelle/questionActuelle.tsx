@@ -22,11 +22,7 @@ export const QuestionActuelle = (props: IQuestionActuelleProps) => {
   const { quest } = props;
 
 
-const handle = (i) =>{
-      quest.reponsePossibles[i].intitule = "uyf";
 
-
-  }
 
   return (
     <Row>
@@ -41,9 +37,11 @@ const handle = (i) =>{
 
 
             <li key={reponse.id}>
-                  <Button className="btn btn-primary my-3 jh-create-entity" id="jh-create-entity" onClick={this.handle(i)}  >
-                    {reponse.intitule}
-                  </Button>
+            <form action={"/QuestionActuelle/"+quest.quizz.id } >
+                 <input type="submit" value=  {reponse.intitule}/>
+            </form>
+
+
             </li>
                 )
           )
