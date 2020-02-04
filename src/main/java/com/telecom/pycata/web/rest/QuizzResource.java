@@ -2,10 +2,13 @@ package com.telecom.pycata.web.rest;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import com.telecom.pycata.domain.*;
+import com.telecom.pycata.domain.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,32 +25,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.telecom.pycata.domain.Joueur;
-import com.telecom.pycata.domain.Question;
-import com.telecom.pycata.domain.Quizz;
-import com.telecom.pycata.domain.ReponseJoueur;
-import com.telecom.pycata.domain.User;
 import com.telecom.pycata.repository.JoueurRepository;
 import com.telecom.pycata.repository.QuizzRepository;
 import com.telecom.pycata.repository.ReponseJoueurRepository;
+import com.telecom.pycata.web.rest.errors.BadRequestAlertException;
 import com.telecom.pycata.service.UserService;
 import com.telecom.pycata.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * REST controller for managing {@link com.telecom.pycata.domain.Quizz}.
@@ -70,6 +58,7 @@ public class QuizzResource {
     private final QuizzRepository quizzRepository;
     private final JoueurRepository joueurRepository;
     private final ReponseJoueurRepository reponseJoueurRepository;
+
 
     public QuizzResource(QuizzRepository quizzRepository, JoueurRepository joueurRepository, ReponseJoueurRepository reponseJoueurRepository) {
         this.quizzRepository = quizzRepository;
@@ -99,19 +88,24 @@ public class QuizzResource {
     /**
      * {@code POST  /quizzes} : Links players to quizzes through ReponseJoueur class.
      *
-     * @param quizz id and joueur id.
+     * @param  id and joueur id.
      *
      */
-    @PostMapping("/quizz-add-joueur")
-    public void addJoueurToQuizz(@RequestParam("id") Long id, @RequestParam("id_joueur") Long id_joueur) {
+    @GetMapping("/quizz-add-joueur/{id}")
+    public void addJoueurToQuizz(@PathVariable("id") Long id) {
         Quizz quizz = quizzRepository.findById(id).get();
+        Joueur joueur = joueurRepository.getJoueurByIdUser(this.userService.getUserWithAuthorities().get().getId());
         Set<Question> questions = quizz.getQuestions();
         for(Question question : questions) {
-        	ReponseJoueur reponseJoueur = new ReponseJoueur();
-        	reponseJoueur.setJoueur(joueurRepository.findById(id_joueur).get());
-        	reponseJoueur.setReponsePossible(question.getReponsePossibles().iterator().next());
-        	reponseJoueurRepository.save(reponseJoueur);
+        	for(ReponsePossible reponsePossible : question.getReponsePossibles()){
+                ReponseJoueur reponseJoueur = new ReponseJoueur();
+                reponseJoueur.setJoueur(joueur);
+                reponseJoueur.setReponsePossible(reponsePossible);
+                reponseJoueurRepository.save(reponseJoueur);
+            }
         }
+        reponseJoueurRepository.flush();
+
     }
 
     /**
@@ -150,7 +144,7 @@ public class QuizzResource {
 
     @GetMapping("/quizzesJoueur")
     public ResponseEntity<Joueur> getJoueur() {
-    	User user = userService.getUserWithAuthorities().get();
+    	//User user = userService.getUserWithAuthorities().get();
 
     	return ResponseEntity.ok()
                 .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, userService.getUserWithAuthorities().get().getId()))
@@ -167,6 +161,8 @@ public class QuizzResource {
     public ResponseEntity<Quizz> getQuizz(@PathVariable Long id) {
         log.debug("REST request to get Quizz : {}", id);
         Optional<Quizz> quizz = quizzRepository.findById(id);
+
+        System.out.println( "" + this.userService.getUserWithAuthorities().get());
         return ResponseUtil.wrapOrNotFound(quizz);
     }
 
@@ -177,7 +173,9 @@ public class QuizzResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/quizzes/{id}")
-    public ResponseEntity<Void> deleteQuizz(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteQuizz(@PathVariable Long id, HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        principal.getName();
         log.debug("REST request to delete Quizz : {}", id);
         quizzRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
@@ -196,6 +194,39 @@ public class QuizzResource {
         log.debug("REST request to get Quizz : {}", id);
         Optional<Quizz> quizz = quizzRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(quizz);
+    }
+
+
+
+    /**
+     * {@code GET  /quizzes/:id} : get the "id" quizz.
+     *
+     * @param id the id of the quizz to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the quizz, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/questionActuelle/{id}")
+    public ResponseEntity<Question> getQuestion(@PathVariable Long id) {
+        log.debug("REST request to get Quizz : {}", id);
+        Optional<Quizz> quizz = quizzRepository.findById(id);
+
+        Joueur joueur = joueurRepository.getJoueurByIdUser(this.userService.getUserWithAuthorities().get().getId());
+
+        Set<ReponseJoueur> reponseJoueurs = joueur.getReponseJoueurs();
+        Optional<Question> question = null;
+        Set<Question> setQuestions = quizz.get().getQuestions();
+        for(Question q : setQuestions)
+        {
+            for(ReponsePossible reponsePossible : q.getReponsePossibles()){
+                for(ReponseJoueur reponseJoueur : reponseJoueurs) {
+                    if(reponseJoueur.getReponsePossible().getId() == reponsePossible.getId() && reponseJoueur.getDateReponse() == null){
+                         question = Optional.of(q);
+                    }
+
+                }
+            }
+        }
+
+        return ResponseUtil.wrapOrNotFound(question);
     }
 
 

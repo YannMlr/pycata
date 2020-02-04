@@ -36,6 +36,8 @@ import com.telecom.pycata.repository.QuizzRepository;
 import com.telecom.pycata.repository.ReponseJoueurRepository;
 import com.telecom.pycata.web.rest.errors.ExceptionTranslator;
 
+import javax.persistence.EntityManager;
+
 /**
  * Integration tests for the {@link QuizzResource} REST controller.
  */
@@ -50,13 +52,12 @@ public class QuizzResourceIT {
 
     @Autowired
     private QuizzRepository quizzRepository;
-    
+
     @Autowired
     private JoueurRepository joueurRepository;
-    
+
     @Autowired
     private ReponseJoueurRepository reponseJoueurRepository;
-    
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
@@ -171,7 +172,7 @@ public class QuizzResourceIT {
             .andExpect(jsonPath("$.[*].sujet").value(hasItem(DEFAULT_SUJET)))
             .andExpect(jsonPath("$.[*].score").value(hasItem(DEFAULT_SCORE)));
     }
-    
+
     @Test
     @Transactional
     public void getQuizz() throws Exception {

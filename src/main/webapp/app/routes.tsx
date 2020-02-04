@@ -6,13 +6,13 @@ import Logout from 'app/modules/login/logout';
 import Home from 'app/modules/home/home';
 import Choix from 'app/modules/Choix/choix';
 import ListQuizz from 'app/modules/ListQuizz/listQuizz'
+import QuestionActuelle from "app/modules/QuestionActuelle/questionActuelle";
 
 import Entities from 'app/entities';
 import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 import PageNotFound from 'app/shared/error/page-not-found';
 import { AUTHORITIES } from 'app/config/constants';
-import {QuestionActuelle} from "app/modules/QuestionActuelle/questionActuelle";
 
 const Admin = Loadable({
   loader: () => import(/* webpackChunkName: "administration" */ 'app/modules/administration'),
