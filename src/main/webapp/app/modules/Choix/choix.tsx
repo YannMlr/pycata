@@ -23,13 +23,15 @@ export const Choix = (props: IChoixProps) => {
 
   const { quizzEntity} = props;
 
+
   return (
     <Row>
       <Col md="9">
         <h2>
-          {quizzEntity.sujet}
+          {quizzEntity.questions}
         </h2>
-        <Button tag={Link} to={`/QuestionActuelle/${quizzEntity.id}`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+
+        <Button tag={Link} to={`/QuestionActuelle/`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           Commencer le quizz
         </Button>
       </Col>

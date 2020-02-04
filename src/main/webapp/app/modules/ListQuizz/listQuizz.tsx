@@ -55,12 +55,12 @@ export const ListQuizz = (props: IListQuizzProps) => {
               <tbody>
               {quizzPossible.map((quizzes) => (
                 <tr>
+                  <td>{quizzes.id}</td>
                   <td>
                     <Button tag={Link} to={`/choix/${quizzes.id}`} color="link" size="sm">
-                      {quizzes.id}
+                      {quizzes.sujet}
                     </Button>
-                  </td>
-                  <td>{quizzes.sujet}</td>
+                        </td>
                   <td>{quizzes.score}</td>
                   {quizzes.evenement ? (
                     <td>{quizzes.evenement.intitule}</td>
