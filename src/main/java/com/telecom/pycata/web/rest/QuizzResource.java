@@ -2,10 +2,12 @@ package com.telecom.pycata.web.rest;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import com.telecom.pycata.domain.ReponseJoueur;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +27,26 @@ import org.springframework.web.bind.annotation.RestController;
 import com.telecom.pycata.domain.Joueur;
 import com.telecom.pycata.domain.Question;
 import com.telecom.pycata.domain.Quizz;
-import com.telecom.pycata.domain.ReponseJoueur;
-import com.telecom.pycata.domain.User;
 import com.telecom.pycata.repository.JoueurRepository;
 import com.telecom.pycata.repository.QuizzRepository;
 import com.telecom.pycata.repository.ReponseJoueurRepository;
-import com.telecom.pycata.service.UserService;
 import com.telecom.pycata.web.rest.errors.BadRequestAlertException;
-
+import com.telecom.pycata.service.UserService;
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * REST controller for managing {@link com.telecom.pycata.domain.Quizz}.
@@ -57,6 +69,7 @@ public class QuizzResource {
     private final QuizzRepository quizzRepository;
     private final JoueurRepository joueurRepository;
     private final ReponseJoueurRepository reponseJoueurRepository;
+
 
     public QuizzResource(QuizzRepository quizzRepository, JoueurRepository joueurRepository, ReponseJoueurRepository reponseJoueurRepository) {
         this.quizzRepository = quizzRepository;
@@ -86,7 +99,7 @@ public class QuizzResource {
     /**
      * {@code POST  /quizzes} : Links players to quizzes through ReponseJoueur class.
      *
-     * @param quizz id and joueur id.
+     * @param  id and joueur id.
      *
      */
     @PostMapping("/quizz-add-joueur")
@@ -150,10 +163,12 @@ public class QuizzResource {
      * @param id the id of the quizz to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the quizz, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/quizzes/{id}")
+    @GetMapping("/choix/{id}")
     public ResponseEntity<Quizz> getQuizz(@PathVariable Long id) {
         log.debug("REST request to get Quizz : {}", id);
         Optional<Quizz> quizz = quizzRepository.findById(id);
+
+        System.out.println( "" + this.userService.getUserWithAuthorities().get());
         return ResponseUtil.wrapOrNotFound(quizz);
     }
 
@@ -164,7 +179,9 @@ public class QuizzResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/quizzes/{id}")
-    public ResponseEntity<Void> deleteQuizz(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteQuizz(@PathVariable Long id, HttpServletRequest request) {
+        Principal principal = request.getUserPrincipal();
+        principal.getName();
         log.debug("REST request to delete Quizz : {}", id);
         quizzRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
