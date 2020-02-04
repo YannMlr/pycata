@@ -2,15 +2,11 @@ import '../home/home.scss';
 
 import React, {useEffect} from 'react';
 import {Link, RouteComponentProps} from 'react-router-dom';
-import { Translate } from 'react-jhipster';
 import { connect } from 'react-redux';
 import { Row, Col, Button } from 'reactstrap';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './choix.reducer';
-
-import { getLoginUrl } from 'app/shared/util/url-utils';
-import {getEntities} from "app/entities/quizz/quizz.reducer";
 
 export interface IChoixProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -28,10 +24,10 @@ export const Choix = (props: IChoixProps) => {
     <Row>
       <Col md="9">
         <h2>
-          {quizzEntity.questions}
+          {quizzEntity.sujet}
         </h2>
 
-        <Button tag={Link} to={`/QuestionActuelle/`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+        <Button tag={Link} to={`/QuestionActuelle/${quizzEntity.id}`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           Commencer le quizz
         </Button>
       </Col>
