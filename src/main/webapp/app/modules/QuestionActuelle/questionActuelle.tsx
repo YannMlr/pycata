@@ -9,9 +9,6 @@ import { Row, Col, Button } from 'reactstrap';
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './questionActuelle.reducer';
 
-import { getLoginUrl } from 'app/shared/util/url-utils';
-import {getEntities} from "app/entities/quizz/quizz.reducer";
-
 export interface IQuestionActuelleProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 
@@ -24,15 +21,44 @@ export const QuestionActuelle = (props: IQuestionActuelleProps) => {
 
   const { quest } = props;
 
+
+const handle = (i) =>{
+      quest.reponsePossibles[i].intitule = "uyf";
+
+
+  }
+
   return (
     <Row>
       <Col md="9">
         <h2>
-            Question actuelle {quest.intitule}
+            {quest.intitule}
         </h2>
 
+        <ul>
+        {quest.reponsePossibles && quest.reponsePossibles.length >0 ? (
+          quest.reponsePossibles.map((reponse,i) => (
+
+
+            <li key={reponse.id}>
+                  <Button className="btn btn-primary my-3 jh-create-entity" id="jh-create-entity" onClick={this.handle(i)}  >
+                    {reponse.intitule}
+                  </Button>
+            </li>
+                )
+          )
+
+          ) :(
+            <p> Veuillez patienter </p>
+        )
+        }
+        </ul>
+
       </Col>
+
       <Col md="3" className="pad">
+
+
 
       </Col>
     </Row>
