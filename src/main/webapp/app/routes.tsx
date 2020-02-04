@@ -12,7 +12,7 @@ import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 import PageNotFound from 'app/shared/error/page-not-found';
 import { AUTHORITIES } from 'app/config/constants';
-import {QuestionActuelle} from "app/modules/QuestionActuelle/questionActuelle";
+import QuestionActuelle from "app/modules/QuestionActuelle/questionActuelle";
 
 const Admin = Loadable({
   loader: () => import(/* webpackChunkName: "administration" */ 'app/modules/administration'),

@@ -28,9 +28,7 @@ export const QuestionActuelle = (props: IQuestionActuelleProps) => {
     <Row>
       <Col md="9">
         <h2>
-            Question actuelle
-
-
+            Question actuelle {quest.intitule}
         </h2>
 
       </Col>
